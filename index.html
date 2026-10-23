@@ -6,40 +6,233 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mongol Novel</title>
 <style>
-body{background:#10131c;color:#eee;font-family:Arial,sans-serif;margin:0}
-header{text-align:center;padding:24px;background:#202638}
-h1{color:#9bbcff}
-main{max-width:700px;margin:auto;padding:16px}
-input{width:100%;box-sizing:border-box;padding:13px;border-radius:8px}
-.card{background:#202638;padding:16px;border-radius:12px;margin:16px 0}
-a{color:#a9c5ff}
-.chapter{display:block;padding:12px 0;border-top:1px solid #3a4357}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f4f1eb;
+  color: #28251f;
+  font-family: Arial, sans-serif;
+}
+header {
+  background: #30251f;
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+}
+header h1 { margin: 0 0 8px; }
+header p { margin: 0; color: #e2d6c9; }
+main { max-width: 800px; margin: auto; padding: 16px; }
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 9px;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.card, .reader {
+  background: white;
+  border-radius: 12px;
+  padding: 17px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px #0000000c;
+}
+.card h2 { margin: 0 0 8px; }
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  margin: 4px 4px 4px 0;
+  background: #604333;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+button.secondary { background: #e9e1d9; color: #30251f; }
+.chapter {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #f5f1ed;
+  color: #30251f;
+  margin: 8px 0;
+}
+.hidden { display: none; }
+#storyText {
+  font-size: 18px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.small { color: #777; font-size: 14px; }
+footer { text-align: center; padding: 24px; color: #777; }
 </style>
 </head>
 <body>
+
 <header>
-<h1>📚 Mongol Novel</h1>
-<p>Үнэгүй зохиолын сан</p>
+  <h1>📚 Mongol Novel</h1>
+  <p>Өөрийн дуртай зохиолоо монгол хэлээр уншаарай</p>
 </header>
+
 <main>
-<input id="search" placeholder="Novel хайх..." oninput="findNovel()">
-<div class="card">
-<h2>Alice's Adventures in Wonderland</h2>
-<p>Алисын гайхалтай адал явдал — англи хэл дээрх сонгодог зохиол.</p>
-<a href="https://www.gutenberg.org/ebooks/11">Зохиолыг нээх</a>
-<h3>Бүлгүүд</h3>
-<a class="chapter" href="https://www.gutenberg.org/files/11/11-h/11-h.htm#chap01">Chapter 1 — Down the Rabbit-Hole</a>
-<a class="chapter" href="https://www.gutenberg.org/files/11/11-h/11-h.htm#chap02">Chapter 2 — The Pool of Tears</a>
-<a class="chapter" href="https://www.gutenberg.org/files/11/11-h/11-h.htm#chap03">Chapter 3 — A Caucus-Race</a>
-</div>
+  <section id="home">
+    <input id="search" type="search"
+      placeholder="Novel-ийн нэрээр хайх..."
+      oninput="showNovels()">
+    <div id="novelList"></div>
+  </section>
+
+  <section id="novelPage" class="hidden">
+    <button class="secondary" onclick="goHome()">← Буцах</button>
+    <h2 id="novelTitle"></h2>
+    <p id="novelDescription" class="small"></p>
+    <h3>Бүлгүүд</h3>
+    <div id="chapterList"></div>
+  </section>
+
+  <section id="readerPage" class="hidden">
+    <button class="secondary" onclick="goChapters()">← Бүлгүүд рүү</button>
+    <div class="reader">
+      <p id="readerNovel" class="small"></p>
+      <h2 id="chapterTitle"></h2>
+      <hr>
+      <div id="storyText"></div>
+    </div>
+    <button id="prevButton" onclick="changeChapter(-1)">← Өмнөх</button>
+    <button id="nextButton" onclick="changeChapter(1)">Дараагийн →</button>
+  </section>
 </main>
+
+<footer>© Mongol Novel</footer>
+
 <script>
-function findNovel(){
-let q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.card').forEach(c=>{
-c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none';
-});
+// ШИНЭ NOVEL, БҮЛГҮҮДЭЭ ЭНД НЭМНЭ.
+const novels = [
+  {
+    title: "Сарны доорх нууц",
+    description: "Жишээ зохиол · Адал явдал, уран зөгнөл",
+    chapters: [
+      {
+        title: "1-р бүлэг: Нууцлаг захиа",
+        text: `Тэр орой хотыг өтгөн манан бүрхэж байлаа.
+
+Бат гэртээ ирээд хаалганы завсраар хавчуулсан жижигхэн захиаг олжээ. Захиан дээр зөвхөн нэг өгүүлбэр бичсэн байв.
+
+"Үнэнийг мэдэхийг хүсвэл маргааш шөнө хуучин цамхагт ир."
+
+Бат захиаг дахин уншаад цонхоор гадагш харав. Гудамжны нөгөө талд хэн нэгэн түүнийг ажиглаж байгаа мэт санагджээ.`
+      },
+      {
+        title: "2-р бүлэг: Хуучин цамхаг",
+        text: `Маргааш шөнө Бат хуучин цамхагт очив.
+
+Цамхагийн хаалга аяархан дуугарч нээгдлээ. Дотор нь ширээн дээр асаалттай дэнлүү, түүний хажууд хуучин ном байв.
+
+Бат номыг нээхэд эхний хуудсан дээр өөрийнх нь нэрийг бичсэн байхыг хараад гайхжээ.
+
+Энэ бүхэн санамсаргүй хэрэг биш байлаа.`
+      }
+    ]
+  }
+];
+
+let currentNovel = 0;
+let currentChapter = 0;
+
+function showNovels() {
+  const query = document.getElementById("search").value.toLowerCase();
+  const list = document.getElementById("novelList");
+  list.innerHTML = "";
+
+  const matches = novels.map((novel, index) => ({novel, index}))
+    .filter(item => item.novel.title.toLowerCase().includes(query));
+
+  if (matches.length === 0) {
+    list.textContent = "Novel олдсонгүй.";
+    return;
+  }
+
+  matches.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const title = document.createElement("h2");
+    title.textContent = item.novel.title;
+    const description = document.createElement("p");
+    description.textContent = item.novel.description;
+    const count = document.createElement("p");
+    count.className = "small";
+    count.textContent = item.novel.chapters.length + " бүлэг";
+    const button = document.createElement("button");
+    button.textContent = "Унших";
+    button.onclick = () => openNovel(item.index);
+
+    card.append(title, description, count, button);
+    list.appendChild(card);
+  });
 }
+
+function hidePages() {
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("novelPage").classList.add("hidden");
+  document.getElementById("readerPage").classList.add("hidden");
+}
+
+function openNovel(index) {
+  currentNovel = index;
+  hidePages();
+  document.getElementById("novelPage").classList.remove("hidden");
+  document.getElementById("novelTitle").textContent = novels[index].title;
+  document.getElementById("novelDescription").textContent =
+    novels[index].description;
+
+  const list = document.getElementById("chapterList");
+  list.innerHTML = "";
+
+  novels[index].chapters.forEach((chapter, chapterIndex) => {
+    const button = document.createElement("button");
+    button.className = "chapter";
+    button.textContent = chapter.title;
+    button.onclick = () => openChapter(chapterIndex);
+    list.appendChild(button);
+  });
+}
+
+function openChapter(index) {
+  currentChapter = index;
+  hidePages();
+  document.getElementById("readerPage").classList.remove("hidden");
+  document.getElementById("readerNovel").textContent =
+    novels[currentNovel].title;
+  document.getElementById("chapterTitle").textContent =
+    novels[currentNovel].chapters[index].title;
+  document.getElementById("storyText").textContent =
+    novels[currentNovel].chapters[index].text;
+
+  document.getElementById("prevButton").disabled = index === 0;
+  document.getElementById("nextButton").disabled =
+    index === novels[currentNovel].chapters.length - 1;
+
+  window.scrollTo(0, 0);
+}
+
+function changeChapter(step) {
+  const next = currentChapter + step;
+  if (next >= 0 && next < novels[currentNovel].chapters.length) {
+    openChapter(next);
+  }
+}
+
+function goHome() {
+  hidePages();
+  document.getElementById("home").classList.remove("hidden");
+}
+
+function goChapters() {
+  openNovel(currentNovel);
+}
+
+showNovels();
 </script>
 </body>
 </html>
