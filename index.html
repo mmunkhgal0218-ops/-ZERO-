@@ -149,10 +149,9 @@ const starter=[
   {title:"1-р бүлэг: Газрын зураг",text:"Хуучин авдрын ёроолд шарласан газрын зураг байв.\n\nТэр газрын зураг аялагчийг үл мэдэгдэх газар руу дууджээ."}
  ]}
 ];
-let books=[];
-try{books=JSON.parse(localStorage.getItem("mn_books"))||starter}catch(e){books=starter}
-let category="Бүгд",page=1,selected=0,chapter=0,logged=false;
-const perPage=8;
+let books = [];
+let category = "Бүгд", page = 1, selected = 0, chapter = 0, logged = false;
+const perPage = 8;
 function save(){try{localStorage.setItem("mn_books",JSON.stringify(books));return true}catch(e){alert("Хадгалж чадсангүй. Браузерын хадгалах зайг шалгана уу.");return false}}
 function pageShow(id){["home","detail","reader","admin"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0)}
 function home(){pageShow("home");render()}
@@ -160,6 +159,46 @@ function renderFilters(){
  const el=document.getElementById("filters");el.innerHTML="";
  categories.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.className=category===c?"active":"";b.onclick=()=>{category=c;page=1;renderFilters();render()};el.append(b)})
 }
+async function loadBooks() {
+  const { data: novels, error } = await supabaseClient
+    .from("novels")
+    .select("*")
+    .order("id");
+
+  if (error) {
+    console.error("Ном ачааллах алдаа:", error.message);
+    alert("Ном ачаалж чадсангүй. Supabase тохиргоогоо шалгана уу.");
+    return;
+  }
+
+  const { data: chapters, error: chapterError } = await supabaseClient
+    .from("chapters")
+    .select("*")
+    .eq("published", true)
+    .order("chapter_number");
+
+  if (chapterError) {
+    console.error("Бүлэг ачааллах алдаа:", chapterError.message);
+    return;
+  }
+
+  books = novels.map(novel => ({
+    id: novel.id,
+    title: novel.title,
+    genre: novel.genre,
+    icon: novel.icon || "📘",
+    desc: novel.description || "",
+    chapters: chapters
+      .filter(c => c.novel_id === novel.id)
+      .map(c => ({
+        title: c.title,
+        text: c.text || c.content || ""
+      }))
+  }));
+
+  render();
+}
+
 function render(){
  renderFilters();
  const q=document.getElementById("search").value.toLowerCase();
@@ -231,7 +270,9 @@ function exportData(){
  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();URL.revokeObjectURL(a.href)
 }
 render();
-</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+if (typeof loadBooks === "function") {
+  loadBooks();
+    }</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL = "https://bjpxaroipsvkiphycpmf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w;
