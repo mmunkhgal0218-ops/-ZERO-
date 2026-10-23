@@ -3,421 +3,234 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mongol Novel | Монгол зохиол</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mongol Novel</title>
 <style>
-:root {
-  --bg: #10121a;
-  --panel: #191d29;
-  --panel2: #222838;
-  --text: #f5f4fa;
-  --muted: #a4aabd;
-  --accent: #b79aff;
-  --line: #303647;
-}
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-}
-button, input, select { font: inherit; }
-button { cursor: pointer; }
-header {
-  background: linear-gradient(130deg,#29203f,#171a29 65%,#33244c);
-  border-bottom: 1px solid var(--line);
-}
-.topbar {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.logo { font-size: 23px; font-weight: 800; }
-.logo span { color: var(--accent); }
-.tagline { color: var(--muted); font-size: 12px; margin-top: 5px; }
-.wrap { max-width: 1100px; padding: 20px 16px; margin: auto; }
-.hero {
-  padding: 26px 20px;
-  border-radius: 18px;
-  background: linear-gradient(120deg,#302449,#1c2437);
-  margin-bottom: 22px;
-}
-.hero h1 { font-size: 29px; margin: 0 0 10px; }
-.hero p { color: #d0c9df; line-height: 1.6; }
-.search {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  color: white;
-  margin: 8px 0 16px;
-}
-.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
-.pill {
-  background: var(--panel2);
-  border: 1px solid var(--line);
-  color: var(--text);
-  padding: 10px 13px;
-  border-radius: 22px;
-}
-.pill.active { background: var(--accent); color: #171221; border-color: var(--accent); }
-.section-title { font-size: 20px; margin: 22px 0 14px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 12px;
-}
-.book {
-  min-width: 0;
-  padding: 15px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-}
-.cover {
-  height: 125px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 43px;
-  background: linear-gradient(140deg,#46345f,#222b43);
-  margin-bottom: 12px;
-}
-.book h3 { margin: 5px 0 8px; font-size: 17px; overflow-wrap: anywhere; }
-.muted { color: var(--muted); font-size: 13px; line-height: 1.6; }
-.tag {
-  color: var(--accent);
-  font-size: 12px;
-  margin-bottom: 8px;
-}
-.primary {
-  background: var(--accent);
-  color: #171221;
-  border: 0;
-  border-radius: 9px;
-  padding: 11px 13px;
-  font-weight: bold;
-}
-.secondary {
-  background: var(--panel2);
-  color: white;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 10px 12px;
-}
-.full { width: 100%; margin-top: 10px; }
-.hidden { display: none !important; }
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 17px;
-}
-.chapter-button {
-  width: 100%;
-  display: block;
-  text-align: left;
-  color: var(--text);
-  background: var(--panel2);
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  padding: 13px;
-  margin: 8px 0;
-}
-.reader-text {
-  font-size: 18px;
-  line-height: 2;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  color: #eae8f2;
-  margin-top: 22px;
-}
-.reader-head { color: var(--muted); font-size: 13px; }
-.reader-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-.empty { color: var(--muted); padding: 20px 0; }
-footer {
-  border-top: 1px solid var(--line);
-  text-align: center;
-  padding: 25px 16px;
-  color: var(--muted);
-  font-size: 13px;
-}
-@media (min-width: 650px) {
-  .grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-  .hero h1 { font-size: 36px; }
-  .cover { height: 160px; }
-}
-@media (min-width: 950px) {
-  .grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
-}
+*{box-sizing:border-box}
+:root{--bg:#10131c;--card:#1b2030;--line:#30394d;--txt:#f4f5fb;--muted:#a7b0c3;--accent:#b7a0ff}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Arial,sans-serif}
+header{padding:18px;background:#1a1930;border-bottom:1px solid var(--line)}
+.top,main{max-width:1050px;margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.logo{font-size:22px;font-weight:bold}.logo span{color:var(--accent)}
+main{padding:17px}
+.hero,.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:17px}
+.hero{background:linear-gradient(130deg,#35274f,#1b2030)}
+h1{font-size:27px}h2{font-size:21px}
+p{line-height:1.6}
+.muted{color:var(--muted);font-size:13px}
+input,textarea,select{width:100%;padding:12px;margin:6px 0 12px;background:#101521;color:white;border:1px solid var(--line);border-radius:8px;font-size:15px}
+textarea{min-height:160px;line-height:1.7}
+button{padding:10px 13px;border:0;border-radius:8px;background:var(--accent);color:#171326;font-weight:bold;margin:3px;cursor:pointer}
+button:disabled{opacity:.35}
+.alt{background:#30384b;color:white}
+.filters{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 20px}
+.filters button{background:#272d3e;color:white;border:1px solid var(--line)}
+.filters button.active{background:var(--accent);color:#171326}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.book{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
+.cover{height:115px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(140deg,#43365f,#252d43);font-size:40px;margin-bottom:12px}
+.book h3{overflow-wrap:anywhere}
+.tag{font-size:12px;color:var(--accent)}
+.full{width:100%;margin:8px 0}
+.chapter{display:block;width:100%;text-align:left;background:#282f40;color:white;margin:7px 0}
+.story{white-space:pre-wrap;overflow-wrap:anywhere;font-size:18px;line-height:2}
+.hidden{display:none!important}
+.pages{text-align:center;padding:18px}
+footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}
+hr{border:0;border-top:1px solid var(--line);margin:17px 0}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cover{height:150px}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="topbar">
-    <div>
-      <div class="logo">📚 MONGOL <span>NOVEL</span></div>
-      <div class="tagline">Таны унших ертөнц</div>
-    </div>
-    <button class="secondary" onclick="goHome()">Нүүр</button>
-  </div>
+ <div class="top">
+  <div class="logo">📚 MONGOL <span>NOVEL</span><div class="muted">Монгол зохиолын сан</div></div>
+  <button class="alt" onclick="showAdmin()">Админ</button>
+ </div>
 </header>
 
-<main class="wrap">
-  <section id="home">
-    <div class="hero">
-      <h1>Өөр ертөнцөд тавтай морил!</h1>
-      <p>Дуртай зохиолоо сонгоод, бүлэг бүрийг монгол хэлээр уншаарай.</p>
-      <button class="primary" onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">
-        Зохиол үзэх ↓
-      </button>
-    </div>
+<main>
+<section id="home">
+ <div class="hero">
+  <h1>Унших ертөнцөд тавтай морил!</h1>
+  <p>Өөрийн дуртай зохиолоо сонгон, бүлэг бүрийг монгол хэлээр уншаарай.</p>
+ </div>
+ <input id="search" placeholder="🔎 Novel-ийн нэрээр хайх..." oninput="page=1;render()">
+ <div id="filters" class="filters"></div>
+ <h2>📖 Зохиолын сан</h2>
+ <div id="grid" class="grid"></div>
+ <div id="pages" class="pages"></div>
+</section>
 
-    <input id="search" class="search" placeholder="🔎 Novel-ийн нэрээр хайх..." oninput="renderBooks()">
+<section id="detail" class="hidden">
+ <button class="alt" onclick="home()">← Буцах</button>
+ <div class="panel">
+  <div class="cover" id="cover">📘</div>
+  <div id="genre" class="tag"></div>
+  <h1 id="title"></h1>
+  <p id="desc" class="muted"></p>
+  <h2>Бүлгүүд</h2>
+  <div id="chapters"></div>
+ </div>
+</section>
 
-    <h2 class="section-title">Ангилал</h2>
-    <div id="filters" class="filters"></div>
+<section id="reader" class="hidden">
+ <button class="alt" onclick="backDetail()">← Бүлгүүд</button>
+ <div class="panel">
+  <p id="readBook" class="muted"></p>
+  <h2 id="readTitle"></h2><hr>
+  <div id="story" class="story"></div>
+  <hr>
+  <button id="prev" class="alt" onclick="move(-1)">← Өмнөх</button>
+  <button id="next" onclick="move(1)">Дараагийн →</button>
+ </div>
+</section>
 
-    <h2 class="section-title" id="library">📖 Зохиолын сан</h2>
-    <div id="bookGrid" class="grid"></div>
-  </section>
-
-  <section id="detail" class="hidden">
-    <button class="secondary" onclick="goHome()">← Нүүр рүү буцах</button>
-    <div class="panel" style="margin-top:15px">
-      <div class="cover" id="detailCover">📘</div>
-      <div class="tag" id="detailGenre"></div>
-      <h1 id="detailTitle"></h1>
-      <p class="muted" id="detailDescription"></p>
-      <p class="muted" id="detailCount"></p>
-      <h2 class="section-title">Бүлгүүд</h2>
-      <div id="chapterList"></div>
-    </div>
-  </section>
-
-  <section id="reader" class="hidden">
-    <button class="secondary" onclick="goDetail()">← Бүлгүүд</button>
-    <div class="panel" style="margin-top:15px">
-      <div class="reader-head" id="readerBook"></div>
-      <h2 id="readerTitle"></h2>
-      <hr style="border-color:var(--line)">
-      <div id="readerText" class="reader-text"></div>
-      <div class="reader-nav">
-        <button class="secondary" id="prev" onclick="moveChapter(-1)">← Өмнөх</button>
-        <button class="primary" id="next" onclick="moveChapter(1)">Дараагийн →</button>
-      </div>
-    </div>
-  </section>
+<section id="admin" class="hidden">
+ <button class="alt" onclick="home()">← Нүүр</button>
+ <div class="panel">
+  <h2>🔐 Админ хэсэг</h2>
+  <p class="muted">Энэ бол браузерт хадгалах энгийн хувилбар. PIN нь хамгаалалттай серверийн нэвтрэлт биш.</p>
+  <div id="login">
+   <label>Админ PIN код</label>
+   <input id="pin" type="password" placeholder="PIN код">
+   <button onclick="login()">Нэвтрэх</button>
+   <p id="loginMsg" class="muted"></p>
+  </div>
+  <div id="editor" class="hidden">
+   <h3>Шинэ Novel нэмэх</h3>
+   <label>Novel-ийн нэр</label><input id="newTitle" placeholder="Жишээ: Миний зохиол">
+   <label>Ангилал</label>
+   <select id="newGenre">
+    <option>Уран зөгнөл</option><option>Тулаан</option>
+    <option>Адал явдал</option><option>Хайр дурлал</option>
+    <option>Драм</option><option>Аймшиг</option>
+   </select>
+   <label>Товч тайлбар</label><input id="newDesc" placeholder="Зохиолын тухай">
+   <label>Нүүрний тэмдэг</label>
+   <select id="newIcon"><option>📘</option><option>⚔️</option><option>🌙</option><option>🏰</option><option>💜</option><option>🔥</option></select>
+   <button onclick="addBook()">Novel үүсгэх</button>
+   <hr>
+   <h3>Сонгосон Novel-д бүлэг нэмэх</h3>
+   <label>Novel</label><select id="bookSelect"></select>
+   <label>Бүлгийн нэр</label><input id="newChapter" placeholder="1-р бүлэг: Эхлэл">
+   <label>Бүлгийн текст</label><textarea id="newText" placeholder="Өөрийн орчуулсан текстээ энд оруулна..."></textarea>
+   <button onclick="addChapter()">Бүлэг хадгалах</button>
+   <hr>
+   <h3>Novel устгах</h3>
+   <select id="deleteSelect"></select>
+   <button class="alt" onclick="deleteBook()">Сонгосон Novel устгах</button>
+   <button class="alt" onclick="exportData()">Өгөгдлөө нөөцлөх</button>
+   <button class="alt" onclick="logout()">Гарах</button>
+   <p id="adminMsg" class="muted"></p>
+  </div>
+ </div>
+</section>
 </main>
-
-<footer>© Mongol Novel · Монгол хэлээр унших ертөнц</footer>
+<footer>© Mongol Novel</footer>
 
 <script>
-// ЭНД ӨӨРИЙН NOVEL БОЛОН БҮЛГҮҮДЭЭ НЭМЭЭРЭЙ.
-const books = [
-  {
-    title: "Сарны доорх нууц",
-    genre: "Уран зөгнөл",
-    icon: "🌙",
-    description: "Нууцлаг захиа хүлээн авсан залуугийн адал явдал.",
-    chapters: [
-      {
-        title: "1-р бүлэг: Нууцлаг захиа",
-        text: `Тэр орой хотыг өтгөн манан бүрхэж байлаа.
-
-Бат гэртээ ирээд хаалганы завсраар хавчуулсан захиаг олжээ. Захиан дээр ганц өгүүлбэр байв.
-
-"Үнэнийг мэдэхийг хүсвэл маргааш шөнө хуучин цамхагт ир."
-
-Бат цонхоор гадагш харав. Гудамжны нөгөө талд хэн нэгэн түүнийг ажиглаж байгаа мэт санагджээ.`
-      },
-      {
-        title: "2-р бүлэг: Хуучин цамхаг",
-        text: `Маргааш шөнө Бат хуучин цамхагт очив.
-
-Цамхагийн хаалга аяархан дуугарч нээгдлээ. Дотор нь ширээн дээр хуучин ном байв.
-
-Бат номыг нээхэд эхний хуудсан дээр өөрийнх нь нэрийг бичсэн байхыг хараад гайхжээ.
-
-Энэ бүхэн санамсаргүй хэрэг биш байлаа.`
-      }
-    ]
-  },
-  {
-    title: "Сүүлчийн тулаанч",
-    genre: "Тулаан",
-    icon: "⚔️",
-    description: "Хүч чадлаа нээхээр аялалд гарсан залуугийн тухай.",
-    chapters: [
-      {
-        title: "1-р бүлэг: Сорилт",
-        text: `Өглөөний нар уулсын цаанаас мандав.
-
-Залуу тулаанч бэлтгэлийн талбайд ганцаараа зогсож байлаа. Өнөөдөр түүний амьдралыг өөрчлөх сорилт эхлэх байв.
-
-Тэр гүнзгий амьсгаа аваад урагш алхлаа.`
-      }
-    ]
-  },
-  {
-    title: "Алдагдсан хаант улс",
-    genre: "Адал явдал",
-    icon: "🏰",
-    description: "Эртний газрын зураг дагасан аялал.",
-    chapters: [
-      {
-        title: "1-р бүлэг: Газрын зураг",
-        text: `Хуучин авдрын ёроолд шарласан газрын зураг байв.
-
-Зураг дээр хэн ч мэдэхгүй хаант улсын байршлыг тэмдэглэжээ. Аялагч түүнийг хараад удаан бодсоны эцэст замд гарахаар шийдэв.`
-      }
-    ]
-  },
-  {
-    title: "Зүрхний нууц",
-    genre: "Хайр дурлал",
-    icon: "💜",
-    description: "Санамсаргүй учралаас эхэлсэн түүх.",
-    chapters: [
-      {
-        title: "1-р бүлэг: Анхны учрал",
-        text: `Бороо зөөлөн шивэрч байлаа.
-
-Тэр номын дэлгүүрийн үүдэнд зогсож байтал нэгэн хүн түүнд шүхрээ хуваалцахыг санал болгов.
-
-Тэр жижигхэн учрал цаашдаа ямар түүхийн эхлэл болохыг хэн ч мэдээгүй.`
-      }
-    ]
-  }
+// ЭНЭ PIN БОЛ ЗӨВХӨН ЖИШЭЭ. НИЙТЭД ИЛ ГАРГАЖ БОЛОХГҮЙ.
+// Жинхэнэ хамгаалалттай админд серверийн нэвтрэлт шаардлагатай.
+const ADMIN_PIN="2468";
+const categories=["Бүгд","Уран зөгнөл","Тулаан","Адал явдал","Хайр дурлал","Драм","Аймшиг"];
+const starter=[
+ {title:"Сарны доорх нууц",genre:"Уран зөгнөл",icon:"🌙",
+ desc:"Нууцлаг захиа хүлээн авсан залуугийн адал явдал.",
+ chapters:[
+  {title:"1-р бүлэг: Нууцлаг захиа",text:"Тэр орой хотыг өтгөн манан бүрхэж байлаа.\n\nБат гэртээ ирээд хаалганы завсраар хавчуулсан захиаг олжээ.\n\nЗахиан дээр ганц өгүүлбэр байв: Үнэнийг мэдэхийг хүсвэл хуучин цамхагт ир."},
+  {title:"2-р бүлэг: Хуучин цамхаг",text:"Маргааш шөнө Бат хуучин цамхагт очив.\n\nЦамхагийн хаалга аяархан нээгдэхэд дотор нь хуучин ном байлаа."}
+ ]},
+ {title:"Сүүлчийн тулаанч",genre:"Тулаан",icon:"⚔️",desc:"Хүч чадлаа нээхээр аялалд гарсан залуу.",chapters:[
+  {title:"1-р бүлэг: Сорилт",text:"Өглөөний нар уулсын цаанаас мандав.\n\nЗалуу тулаанч өнөөдрийн сорилтод бэлэн болжээ."}
+ ]},
+ {title:"Алдагдсан хаант улс",genre:"Адал явдал",icon:"🏰",desc:"Эртний газрын зургийн нууц.",chapters:[
+  {title:"1-р бүлэг: Газрын зураг",text:"Хуучин авдрын ёроолд шарласан газрын зураг байв.\n\nТэр газрын зураг аялагчийг үл мэдэгдэх газар руу дууджээ."}
+ ]}
 ];
-
-const categories = ["Бүгд", "Уран зөгнөл", "Тулаан", "Адал явдал", "Хайр дурлал"];
-let activeCategory = "Бүгд";
-let currentBook = 0;
-let currentChapter = 0;
-
-function showPage(page) {
-  ["home", "detail", "reader"].forEach(id =>
-    document.getElementById(id).classList.toggle("hidden", id !== page)
-  );
-  window.scrollTo(0, 0);
+let books=[];
+try{books=JSON.parse(localStorage.getItem("mn_books"))||starter}catch(e){books=starter}
+let category="Бүгд",page=1,selected=0,chapter=0,logged=false;
+const perPage=8;
+function save(){try{localStorage.setItem("mn_books",JSON.stringify(books));return true}catch(e){alert("Хадгалж чадсангүй. Браузерын хадгалах зайг шалгана уу.");return false}}
+function pageShow(id){["home","detail","reader","admin"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0)}
+function home(){pageShow("home");render()}
+function renderFilters(){
+ const el=document.getElementById("filters");el.innerHTML="";
+ categories.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.className=category===c?"active":"";b.onclick=()=>{category=c;page=1;renderFilters();render()};el.append(b)})
 }
-
-function renderFilters() {
-  const filters = document.getElementById("filters");
-  filters.innerHTML = "";
-  categories.forEach(category => {
-    const button = document.createElement("button");
-    button.className = "pill" + (activeCategory === category ? " active" : "");
-    button.textContent = category;
-    button.onclick = () => {
-      activeCategory = category;
-      renderFilters();
-      renderBooks();
-    };
-    filters.appendChild(button);
-  });
+function render(){
+ renderFilters();
+ const q=document.getElementById("search").value.toLowerCase();
+ const found=books.map((b,i)=>({b,i})).filter(x=>(x.b.title+" "+x.b.desc).toLowerCase().includes(q)&&(category==="Бүгд"||x.b.genre===category));
+ const total=Math.max(1,Math.ceil(found.length/perPage));if(page>total)page=total;
+ const grid=document.getElementById("grid");grid.innerHTML="";
+ found.slice((page-1)*perPage,page*perPage).forEach(({b,i})=>{
+  const card=document.createElement("div");card.className="book";
+  const cover=document.createElement("div");cover.className="cover";cover.textContent=b.icon||"📘";
+  const tag=document.createElement("div");tag.className="tag";tag.textContent=b.genre;
+  const title=document.createElement("h3");title.textContent=b.title;
+  const desc=document.createElement("p");desc.className="muted";desc.textContent=b.desc;
+  const count=document.createElement("p");count.className="muted";count.textContent=b.chapters.length+" бүлэг";
+  const btn=document.createElement("button");btn.className="full";btn.textContent="Унших";btn.onclick=()=>openBook(i);
+  card.append(cover,tag,title,desc,count,btn);grid.append(card)
+ });
+ if(!found.length)grid.innerHTML='<p class="muted">Зохиол олдсонгүй.</p>';
+ const pages=document.getElementById("pages");pages.innerHTML="";
+ for(let n=1;n<=total;n++){let b=document.createElement("button");b.textContent=n;b.className=n===page?"":"alt";b.onclick=()=>{page=n;render();document.getElementById("library")?.scrollIntoView()};pages.append(b)}
 }
-
-function renderBooks() {
-  const query = document.getElementById("search").value.trim().toLowerCase();
-  const grid = document.getElementById("bookGrid");
-  grid.innerHTML = "";
-
-  const found = books.map((book, index) => ({book, index})).filter(item =>
-    item.book.title.toLowerCase().includes(query) &&
-    (activeCategory === "Бүгд" || item.book.genre === activeCategory)
-  );
-
-  if (!found.length) {
-    grid.innerHTML = '<div class="empty">Энэ ангилалд зохиол олдсонгүй.</div>';
-    return;
-  }
-
-  found.forEach(({book, index}) => {
-    const card = document.createElement("article");
-    card.className = "book";
-    const cover = document.createElement("div");
-    cover.className = "cover";
-    cover.textContent = book.icon;
-    const genre = document.createElement("div");
-    genre.className = "tag";
-    genre.textContent = book.genre;
-    const title = document.createElement("h3");
-    title.textContent = book.title;
-    const desc = document.createElement("p");
-    desc.className = "muted";
-    desc.textContent = book.description;
-    const count = document.createElement("p");
-    count.className = "muted";
-    count.textContent = book.chapters.length + " бүлэг";
-    const button = document.createElement("button");
-    button.className = "primary full";
-    button.textContent = "Унших";
-    button.onclick = () => openBook(index);
-    card.append(cover, genre, title, desc, count, button);
-    grid.appendChild(card);
-  });
+function openBook(i){
+ selected=i;const b=books[i];document.getElementById("cover").textContent=b.icon||"📘";
+ document.getElementById("genre").textContent=b.genre;document.getElementById("title").textContent=b.title;
+ document.getElementById("desc").textContent=b.desc;const list=document.getElementById("chapters");list.innerHTML="";
+ b.chapters.forEach((c,j)=>{let btn=document.createElement("button");btn.className="chapter";btn.textContent=c.title;btn.onclick=()=>openChapter(j);list.append(btn)});
+ pageShow("detail")
 }
-
-function openBook(index) {
-  currentBook = index;
-  const book = books[index];
-  document.getElementById("detailCover").textContent = book.icon;
-  document.getElementById("detailGenre").textContent = book.genre;
-  document.getElementById("detailTitle").textContent = book.title;
-  document.getElementById("detailDescription").textContent = book.description;
-  document.getElementById("detailCount").textContent =
-    "Нийт " + book.chapters.length + " бүлэг";
-
-  const list = document.getElementById("chapterList");
-  list.innerHTML = "";
-  book.chapters.forEach((chapter, index) => {
-    const button = document.createElement("button");
-    button.className = "chapter-button";
-    button.textContent = "📄 " + chapter.title;
-    button.onclick = () => openChapter(index);
-    list.appendChild(button);
-  });
-  showPage("detail");
+function openChapter(i){
+ chapter=i;const b=books[selected],c=b.chapters[i];
+ document.getElementById("readBook").textContent=b.title;document.getElementById("readTitle").textContent=c.title;
+ document.getElementById("story").textContent=c.text;
+ document.getElementById("prev").disabled=i===0;document.getElementById("next").disabled=i===b.chapters.length-1;
+ pageShow("reader")
 }
-
-function openChapter(index) {
-  currentChapter = index;
-  const book = books[currentBook];
-  const chapter = book.chapters[index];
-  document.getElementById("readerBook").textContent = book.title;
-  document.getElementById("readerTitle").textContent = chapter.title;
-  document.getElementById("readerText").textContent = chapter.text;
-  document.getElementById("prev").disabled = index === 0;
-  document.getElementById("next").disabled = index === book.chapters.length - 1;
-  showPage("reader");
+function move(d){let n=chapter+d;if(n>=0&&n<books[selected].chapters.length)openChapter(n)}
+function backDetail(){openBook(selected)}
+function showAdmin(){pageShow("admin")}
+function login(){
+ if(document.getElementById("pin").value===ADMIN_PIN){
+  logged=true;document.getElementById("login").classList.add("hidden");document.getElementById("editor").classList.remove("hidden");refreshSelects()
+ }else document.getElementById("loginMsg").textContent="PIN код буруу байна."
 }
-
-function moveChapter(step) {
-  const next = currentChapter + step;
-  if (next >= 0 && next < books[currentBook].chapters.length) {
-    openChapter(next);
-  }
+function logout(){logged=false;document.getElementById("login").classList.remove("hidden");document.getElementById("editor").classList.add("hidden");document.getElementById("pin").value=""}
+function refreshSelects(){
+ ["bookSelect","deleteSelect"].forEach(id=>{const s=document.getElementById(id);s.innerHTML="";books.forEach((b,i)=>{let o=document.createElement("option");o.value=i;o.textContent=b.title;s.append(o)})})
 }
-
-function goHome() {
-  showPage("home");
+function addBook(){
+ if(!logged)return;
+ const title=document.getElementById("newTitle").value.trim();if(!title){alert("Novel-ийн нэрээ бичнэ үү.");return}
+ books.push({title,genre:document.getElementById("newGenre").value,icon:document.getElementById("newIcon").value,desc:document.getElementById("newDesc").value.trim(),chapters:[]});
+ if(save()){refreshSelects();render();document.getElementById("adminMsg").textContent="Novel хадгалагдлаа."}
+ document.getElementById("newTitle").value="";document.getElementById("newDesc").value=""
 }
-function goDetail() {
-  openBook(currentBook);
+function addChapter(){
+ if(!logged)return;
+ const i=Number(document.getElementById("bookSelect").value),title=document.getElementById("newChapter").value.trim(),text=document.getElementById("newText").value.trim();
+ if(!books[i]||!title||!text){alert("Novel, бүлгийн нэр, текстээ бүрэн оруулна уу.");return}
+ books[i].chapters.push({title,text});if(save()){render();openBook(i);document.getElementById("adminMsg").textContent="Бүлэг хадгалагдлаа."}
+ document.getElementById("newChapter").value="";document.getElementById("newText").value=""
 }
-
-renderFilters();
-renderBooks();
+function deleteBook(){
+ if(!logged)return;const i=Number(document.getElementById("deleteSelect").value);
+ if(!books[i]||!confirm("Энэ Novel болон бүлгүүдийг устгах уу?"))return;
+ books.splice(i,1);save();refreshSelects();render();document.getElementById("adminMsg").textContent="Устгалаа."
+}
+function exportData(){
+ if(!logged)return;
+ const blob=new Blob([JSON.stringify(books,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();URL.revokeObjectURL(a.href)
+}
+render();
 </script>
 </body>
 </html>
