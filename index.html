@@ -270,16 +270,19 @@ function exportData(){
  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();URL.revokeObjectURL(a.href)
 }
 render();
-if (typeof loadBooks === "function") {
-  loadBooks();
-    }</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL = "https://bjpxaroipsvkiphycpmf.supabase.co";
-const SUPABASE_KEY = "sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w;
+const SUPABASE_KEY = "sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w";
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
-console.log("Supabase холболтын сан:", !!window.supabase);</script>
+console.log("Supabase холболтын сан:", !!window.supabase);
+
+if (typeof loadBooks === "function") {
+  loadBooks();
+}
+</script>
 </body>
 </html>
