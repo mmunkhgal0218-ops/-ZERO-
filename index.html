@@ -203,14 +203,10 @@ async function loadBooks() {
 
   refreshSelects();
   render();
-  console.log("Ном амжилттай ачаалагдлаа:", books.length);
+    console.log("Ном амжилттай ачаалагдлаа:", books.length);
 }
 
-
-  render();
-}
-
-function render(){
+function render() {
  renderFilters();
  const q=document.getElementById("search").value.toLowerCase();
  const found=books.map((b,i)=>({b,i})).filter(x=>(x.b.title+" "+x.b.desc).toLowerCase().includes(q)&&(category==="Бүгд"||x.b.genre===category));
