@@ -287,9 +287,16 @@ const supabaseClient = window.supabase.createClient(
 );
 console.log("Supabase холболтын сан:", !!window.supabase);
 
+
 if (typeof loadBooks === "function") {
-  loadBooks();
+  loadBooks().catch(err => {
+    alert("Алдаа: " + err.message);
+    console.error(err);
+  });
+} else {
+  alert("loadBooks функц олдсонгүй!");
 }
+
 </script>
 </body>
 </html>
