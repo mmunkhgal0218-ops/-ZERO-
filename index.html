@@ -159,26 +159,31 @@ function renderFilters(){
  const el=document.getElementById("filters");el.innerHTML="";
  categories.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.className=category===c?"active":"";b.onclick=()=>{category=c;page=1;renderFilters();render()};el.append(b)})
 }
+
 async function loadBooks() {
+  console.log("loadBooks ажиллаж эхэллээ");
+
   const { data: novels, error } = await supabaseClient
     .from("novels")
     .select("*")
     .order("id");
 
   if (error) {
-    console.error("Ном ачааллах алдаа:", error.message);
-    alert("Ном ачаалж чадсангүй. Supabase тохиргоогоо шалгана уу.");
+    alert("Номын алдаа: " + error.message);
+    console.error(error);
     return;
   }
 
-  const { data: chapters, error: chapterError } = await supabaseClient
-    .from("chapters")
-    .select("*")
-    .eq("published", true)
-    .order("chapter_number");
+  const { data: chapters, error: chapterError } =
+    await supabaseClient
+      .from("chapters")
+      .select("*")
+      .eq("published", true)
+      .order("chapter_number");
 
   if (chapterError) {
-    console.error("Бүлэг ачааллах алдаа:", chapterError.message);
+    alert("Бүлгийн алдаа: " + chapterError.message);
+    console.error(chapterError);
     return;
   }
 
@@ -189,12 +194,18 @@ async function loadBooks() {
     icon: novel.icon || "📘",
     desc: novel.description || "",
     chapters: chapters
-      .filter(c => c.novel_id === novel.id)
+      .filter(c => Number(c.novel_id) === Number(novel.id))
       .map(c => ({
         title: c.title,
         text: c.text || c.content || ""
       }))
   }));
+
+  refreshSelects();
+  render();
+  console.log("Ном амжилттай ачаалагдлаа:", books.length);
+}
+
 
   render();
 }
