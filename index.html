@@ -1,302 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mongol Novel</title>
 <style>
-*{box-sizing:border-box}
-:root{--bg:#10131c;--card:#1b2030;--line:#30394d;--txt:#f4f5fb;--muted:#a7b0c3;--accent:#b7a0ff}
-body{margin:0;background:var(--bg);color:var(--txt);font-family:Arial,sans-serif}
-header{padding:18px;background:#1a1930;border-bottom:1px solid var(--line)}
-.top,main{max-width:1050px;margin:auto}
-.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.logo{font-size:22px;font-weight:bold}.logo span{color:var(--accent)}
-main{padding:17px}
-.hero,.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:17px}
-.hero{background:linear-gradient(130deg,#35274f,#1b2030)}
-h1{font-size:27px}h2{font-size:21px}
-p{line-height:1.6}
-.muted{color:var(--muted);font-size:13px}
-input,textarea,select{width:100%;padding:12px;margin:6px 0 12px;background:#101521;color:white;border:1px solid var(--line);border-radius:8px;font-size:15px}
-textarea{min-height:160px;line-height:1.7}
-button{padding:10px 13px;border:0;border-radius:8px;background:var(--accent);color:#171326;font-weight:bold;margin:3px;cursor:pointer}
-button:disabled{opacity:.35}
-.alt{background:#30384b;color:white}
-.filters{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 20px}
-.filters button{background:#272d3e;color:white;border:1px solid var(--line)}
-.filters button.active{background:var(--accent);color:#171326}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.book{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
-.cover{height:115px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(140deg,#43365f,#252d43);font-size:40px;margin-bottom:12px}
-.book h3{overflow-wrap:anywhere}
-.tag{font-size:12px;color:var(--accent)}
-.full{width:100%;margin:8px 0}
-.chapter{display:block;width:100%;text-align:left;background:#282f40;color:white;margin:7px 0}
-.story{white-space:pre-wrap;overflow-wrap:anywhere;font-size:18px;line-height:2}
-.hidden{display:none!important}
-.pages{text-align:center;padding:18px}
-footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}
-hr{border:0;border-top:1px solid var(--line);margin:17px 0}
+*{box-sizing:border-box} :root{--bg:#10131c;--card:#1b2030;--line:#30394d;--txt:#f4f5fb;--muted:#a7b0c3;--accent:#b7a0ff}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Arial,sans-serif}header{padding:16px;background:#1a1930;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top,main{max-width:1050px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.logo{font-size:22px;font-weight:bold}.logo span{color:var(--accent)}main{padding:17px}
+.hero,.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:17px}.hero{background:linear-gradient(130deg,#35274f,#1b2030)}
+h1{font-size:27px}h2{font-size:21px}p{line-height:1.6}.muted{color:var(--muted);font-size:13px}
+input,textarea,select{width:100%;padding:12px;margin:6px 0 12px;background:#101521;color:white;border:1px solid var(--line);border-radius:8px;font-size:15px}textarea{min-height:160px;line-height:1.7}
+button{padding:10px 13px;border:0;border-radius:8px;background:var(--accent);color:#171326;font-weight:bold;margin:3px;cursor:pointer}button:disabled{opacity:.35}.alt{background:#30384b;color:white}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 20px}.filters button{background:#272d3e;color:white;border:1px solid var(--line)}.filters button.active{background:var(--accent);color:#171326}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.book{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}.cover{height:115px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(140deg,#43365f,#252d43);font-size:40px;margin-bottom:12px}.book h3{overflow-wrap:anywhere}.tag{font-size:12px;color:var(--accent)}.full{width:100%;margin:8px 0}.chapter{display:block;width:100%;text-align:left;background:#282f40;color:white;margin:7px 0}.story{white-space:pre-wrap;overflow-wrap:anywhere;font-size:18px;line-height:2}.hidden{display:none!important}.pages{text-align:center;padding:18px}footer{text-align:center;color:var(--muted);padding:25px;font-size:12px}hr{border:0;border-top:1px solid var(--line);margin:17px 0}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}.status{padding:10px;border-radius:8px;background:#252b3b;margin:8px 0}.danger{background:#7b303a;color:white}
 @media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.cover{height:150px}}
 </style>
 </head>
 <body>
-<header>
- <div class="top">
-  <div class="logo">📚 MONGOL <span>NOVEL</span><div class="muted">Монгол зохиолын сан</div></div>
-  <button class="alt" onclick="showAdmin()">Админ</button>
- </div>
-</header>
-
+<header><div class="top"><div class="logo">📚 MONGOL <span>NOVEL</span><div class="muted">Монгол зохиолын сан</div></div><div><button class="alt" onclick="showAccount()">👤 Бүртгэл</button><button class="alt" onclick="showAdmin()">Админ</button></div></div></header>
 <main>
-<section id="home">
- <div class="hero">
-  <h1>Унших ертөнцөд тавтай морил!</h1>
-  <p>Өөрийн дуртай зохиолоо сонгон, бүлэг бүрийг монгол хэлээр уншаарай.</p>
- </div>
- <input id="search" placeholder="🔎 Novel-ийн нэрээр хайх..." oninput="page=1;render()">
- <div id="filters" class="filters"></div>
- <h2>📖 Зохиолын сан</h2>
- <div id="grid" class="grid"></div>
- <div id="pages" class="pages"></div>
-</section>
-
-<section id="detail" class="hidden">
- <button class="alt" onclick="home()">← Буцах</button>
- <div class="panel">
-  <div class="cover" id="cover">📘</div>
-  <div id="genre" class="tag"></div>
-  <h1 id="title"></h1>
-  <p id="desc" class="muted"></p>
-  <h2>Бүлгүүд</h2>
-  <div id="chapters"></div>
- </div>
-</section>
-
-<section id="reader" class="hidden">
- <button class="alt" onclick="backDetail()">← Бүлгүүд</button>
- <div class="panel">
-  <p id="readBook" class="muted"></p>
-  <h2 id="readTitle"></h2><hr>
-  <div id="story" class="story"></div>
-  <hr>
-  <button id="prev" class="alt" onclick="move(-1)">← Өмнөх</button>
-  <button id="next" onclick="move(1)">Дараагийн →</button>
- </div>
-</section>
-
-<section id="admin" class="hidden">
- <button class="alt" onclick="home()">← Нүүр</button>
- <div class="panel">
-  <h2>🔐 Админ хэсэг</h2>
-  <p class="muted">Энэ бол браузерт хадгалах энгийн хувилбар. PIN нь хамгаалалттай серверийн нэвтрэлт биш.</p>
-  <div id="login">
-   <label>Админ PIN код</label>
-   <input id="pin" type="password" placeholder="PIN код">
-   <button onclick="login()">Нэвтрэх</button>
-   <p id="loginMsg" class="muted"></p>
-  </div>
-  <div id="editor" class="hidden">
-   <h3>Шинэ Novel нэмэх</h3>
-   <label>Novel-ийн нэр</label><input id="newTitle" placeholder="Жишээ: Миний зохиол">
-   <label>Ангилал</label>
-   <select id="newGenre">
-    <option>Уран зөгнөл</option><option>Тулаан</option>
-    <option>Адал явдал</option><option>Хайр дурлал</option>
-    <option>Драм</option><option>Аймшиг</option>
-   </select>
-   <label>Товч тайлбар</label><input id="newDesc" placeholder="Зохиолын тухай">
-   <label>Нүүрний тэмдэг</label>
-   <select id="newIcon"><option>📘</option><option>⚔️</option><option>🌙</option><option>🏰</option><option>💜</option><option>🔥</option></select>
-   <button onclick="addBook()">Novel үүсгэх</button>
-   <hr>
-   <h3>Сонгосон Novel-д бүлэг нэмэх</h3>
-   <label>Novel</label><select id="bookSelect"></select>
-   <label>Бүлгийн нэр</label><input id="newChapter" placeholder="1-р бүлэг: Эхлэл">
-   <label>Бүлгийн текст</label><textarea id="newText" placeholder="Өөрийн орчуулсан текстээ энд оруулна..."></textarea>
-   <button onclick="addChapter()">Бүлэг хадгалах</button>
-   <hr>
-   <h3>Novel устгах</h3>
-   <select id="deleteSelect"></select>
-   <button class="alt" onclick="deleteBook()">Сонгосон Novel устгах</button>
-   <button class="alt" onclick="exportData()">Өгөгдлөө нөөцлөх</button>
-   <button class="alt" onclick="logout()">Гарах</button>
-   <p id="adminMsg" class="muted"></p>
-  </div>
- </div>
-</section>
-</main>
-<footer>© Mongol Novel</footer>
-
+<section id="home"><div class="hero"><h1>Унших ертөнцөд тавтай морил!</h1><p>Өөрийн дуртай зохиолоо сонгон, бүлэг бүрийг монгол хэлээр уншаарай.</p></div>
+<input id="search" placeholder="🔎 Зохиолын нэрээр хайх..." oninput="page=1;render()"><div id="filters" class="filters"></div><h2>📖 Зохиолын сан</h2><div id="grid" class="grid"></div><div id="pages" class="pages"></div></section>
+<section id="detail" class="hidden"><button class="alt" onclick="home()">← Буцах</button><div class="panel"><div class="cover" id="cover">📘</div><div id="genre" class="tag"></div><h1 id="title"></h1><p id="desc" class="muted"></p><button class="alt" onclick="toggleFavorite()">☆ Дуртайд нэмэх/хасах</button><h2>Бүлгүүд</h2><div id="chapters"></div></div></section>
+<section id="reader" class="hidden"><button class="alt" onclick="backDetail()">← Бүлгүүд</button><div class="panel"><p id="readBook" class="muted"></p><h2 id="readTitle"></h2><hr><div id="story" class="story"></div><hr><button id="prev" class="alt" onclick="move(-1)">← Өмнөх</button><button id="next" onclick="move(1)">Дараагийн →</button><p id="progressMsg" class="muted"></p></div></section>
+<section id="account" class="hidden"><button class="alt" onclick="home()">← Нүүр</button><div class="panel"><h2>👤 Хэрэглэгчийн бүртгэл</h2><p class="muted">Бүртгэлээ үүсгээд нэвтэрнэ үү. Имэйл баталгаажуулалт асаалттай бол имэйлээ шалгаарай.</p><div id="authForms"><label>Имэйл</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"><label>Нууц үг</label><input id="password" type="password" autocomplete="current-password" placeholder="Наад зах нь 6 тэмдэгт"><div class="row"><button onclick="signUp()">Бүртгүүлэх</button><button class="alt" onclick="signIn()">Нэвтрэх</button></div></div><div id="userInfo" class="hidden"><p id="userEmail"></p><h3>📌 Үргэлжлүүлэн унших</h3><div id="resumeList"></div><h3>⭐ Дуртай зохиол</h3><div id="favoriteList"></div><button class="alt" onclick="signOut()">Гарах</button></div><p id="authMsg" class="muted"></p></div></section>
+<section id="admin" class="hidden"><button class="alt" onclick="home()">← Нүүр</button><div class="panel"><h2>🔐 Админ хэсэг</h2><p class="muted">Админ эрхийг Supabase дахь profiles хүснэгтийн is_admin=true утгаар шалгана. Энгийн хэрэглэгч зохиол нэмэх/устгах боломжгүй.</p><div id="adminLogin"><p>Админ эрхтэй хэрэглэгчийн бүртгэлээр эхлээд нэвтэрнэ үү.</p><button onclick="showAccount()">Бүртгэл / Нэвтрэх</button><button onclick="checkAdmin()">Админ эрх шалгах</button></div><div id="editor" class="hidden">
+<h3>Шинэ зохиол нэмэх</h3><label>Зохиолын нэр</label><input id="newTitle" placeholder="Жишээ: Миний зохиол"><label>Ангилал</label><select id="newGenre"><option>Уран зөгнөл</option><option>Тулаан</option><option>Адал явдал</option><option>Хайр дурлал</option><option>Драм</option><option>Аймшиг</option><option>Бусад</option></select><label>Товч тайлбар</label><input id="newDesc" placeholder="Зохиолын тухай"><label>Нүүрний тэмдэг</label><select id="newIcon"><option>📘</option><option>⚔️</option><option>🌙</option><option>🏰</option><option>💜</option><option>🔥</option></select><button onclick="addBook()">Зохиол хадгалах</button>
+<hr><h3>Сонгосон зохиолд бүлэг нэмэх</h3><label>Зохиол</label><select id="bookSelect"></select><label>Бүлгийн нэр</label><input id="newChapter" placeholder="1-р бүлэг: Эхлэл"><label>Бүлгийн текст</label><textarea id="newText" placeholder="Зохиолын текст..."></textarea><button onclick="addChapter()">Бүлэг хадгалах</button>
+<hr><h3>Зохиол устгах</h3><select id="deleteSelect"></select><button class="danger" onclick="deleteBook()">Сонгосон зохиол устгах</button><button class="alt" onclick="exportData()">JSON нөөц татах</button></div><p id="adminMsg" class="muted"></p></div></section>
+</main><footer>© Mongol Novel</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-// ЭНЭ PIN БОЛ ЗӨВХӨН ЖИШЭЭ. НИЙТЭД ИЛ ГАРГАЖ БОЛОХГҮЙ.
-// Жинхэнэ хамгаалалттай админд серверийн нэвтрэлт шаардлагатай.
-const ADMIN_PIN="2468";
-const categories=["Бүгд","Уран зөгнөл","Тулаан","Адал явдал","Хайр дурлал","Драм","Аймшиг"];
-const starter=[
- {title:"Сарны доорх нууц",genre:"Уран зөгнөл",icon:"🌙",
- desc:"Нууцлаг захиа хүлээн авсан залуугийн адал явдал.",
- chapters:[
-  {title:"1-р бүлэг: Нууцлаг захиа",text:"Тэр орой хотыг өтгөн манан бүрхэж байлаа.\n\nБат гэртээ ирээд хаалганы завсраар хавчуулсан захиаг олжээ.\n\nЗахиан дээр ганц өгүүлбэр байв: Үнэнийг мэдэхийг хүсвэл хуучин цамхагт ир."},
-  {title:"2-р бүлэг: Хуучин цамхаг",text:"Маргааш шөнө Бат хуучин цамхагт очив.\n\nЦамхагийн хаалга аяархан нээгдэхэд дотор нь хуучин ном байлаа."}
- ]},
- {title:"Сүүлчийн тулаанч",genre:"Тулаан",icon:"⚔️",desc:"Хүч чадлаа нээхээр аялалд гарсан залуу.",chapters:[
-  {title:"1-р бүлэг: Сорилт",text:"Өглөөний нар уулсын цаанаас мандав.\n\nЗалуу тулаанч өнөөдрийн сорилтод бэлэн болжээ."}
- ]},
- {title:"Алдагдсан хаант улс",genre:"Адал явдал",icon:"🏰",desc:"Эртний газрын зургийн нууц.",chapters:[
-  {title:"1-р бүлэг: Газрын зураг",text:"Хуучин авдрын ёроолд шарласан газрын зураг байв.\n\nТэр газрын зураг аялагчийг үл мэдэгдэх газар руу дууджээ."}
- ]}
-];
-let books = [];
-let category = "Бүгд", page = 1, selected = 0, chapter = 0, logged = false;
-const perPage = 8;
-function save(){try{localStorage.setItem("mn_books",JSON.stringify(books));return true}catch(e){alert("Хадгалж чадсангүй. Браузерын хадгалах зайг шалгана уу.");return false}}
-function pageShow(id){["home","detail","reader","admin"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0)}
+const SUPABASE_URL="https://bjpxaroipsvkiphycpmf.supabase.co";
+const SUPABASE_KEY="sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w";
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const categories=["Бүгд","Уран зөгнөл","Тулаан","Адал явдал","Хайр дурлал","Драм","Аймшиг","Бусад"];
+let books=[],category="Бүгд",page=1,selected=0,chapter=0,currentUser=null,isAdmin=false;
+const perPage=8;
+const $=id=>document.getElementById(id);
+function pageShow(id){["home","detail","reader","admin","account"].forEach(x=>$(x).classList.toggle("hidden",x!==id));window.scrollTo(0,0)}
 function home(){pageShow("home");render()}
-function renderFilters(){
- const el=document.getElementById("filters");el.innerHTML="";
- categories.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.className=category===c?"active":"";b.onclick=()=>{category=c;page=1;renderFilters();render()};el.append(b)})
+function showAdmin(){pageShow("admin");checkAdmin()}
+function showAccount(){pageShow("account");updateAuthUI()}
+function msg(id,t){$(id).textContent=t}
+async function loadBooks(){
+ const [{data:novels,error:e1},{data:chapters,error:e2}]=await Promise.all([
+  supabaseClient.from("novels").select("*").order("id"),
+  supabaseClient.from("chapters").select("*").eq("published",true).order("chapter_number")
+ ]);
+ if(e1)throw e1;if(e2)throw e2;
+ books=(novels||[]).map(n=>({id:n.id,title:n.title,genre:n.genre||"Бусад",icon:n.icon||"📘",desc:n.description||"",chapters:(chapters||[]).filter(c=>String(c.novel_id)===String(n.id)).map(c=>({id:c.id,title:c.title,text:c.text||c.content||"",number:c.chapter_number}))}));
+ refreshSelects();render();
 }
-
-async function loadBooks() {
-  console.log("loadBooks ажиллаж эхэллээ");
-
-  const { data: novels, error } = await supabaseClient
-    .from("novels")
-    .select("*")
-    .order("id");
-
-  if (error) {
-    alert("Номын алдаа: " + error.message);
-    console.error(error);
-    return;
-  }
-
-  const { data: chapters, error: chapterError } =
-    await supabaseClient
-      .from("chapters")
-      .select("*")
-      .eq("published", true)
-      .order("chapter_number");
-
-  if (chapterError) {
-    alert("Бүлгийн алдаа: " + chapterError.message);
-    console.error(chapterError);
-    return;
-  }
-
-  books = novels.map(novel => ({
-    id: novel.id,
-    title: novel.title,
-    genre: novel.genre,
-    icon: novel.icon || "📘",
-    desc: novel.description || "",
-    chapters: chapters
-      .filter(c => Number(c.novel_id) === Number(novel.id))
-      .map(c => ({
-        title: c.title,
-        text: c.text || c.content || ""
-      }))
-  }));
-
-  refreshSelects();
-  render();
-    console.log("Ном амжилттай ачаалагдлаа:", books.length);
+function renderFilters(){const el=$("filters");el.innerHTML="";categories.forEach(c=>{let b=document.createElement("button");b.textContent=c;b.className=category===c?"active":"";b.onclick=()=>{category=c;page=1;render()};el.append(b)})}
+function render(){
+ renderFilters();const q=$("search").value.toLowerCase();const found=books.map((b,i)=>({b,i})).filter(x=>(x.b.title+" "+x.b.desc).toLowerCase().includes(q)&&(category==="Бүгд"||x.b.genre===category));
+ const total=Math.max(1,Math.ceil(found.length/perPage));if(page>total)page=total;const grid=$("grid");grid.innerHTML="";
+ found.slice((page-1)*perPage,page*perPage).forEach(({b,i})=>{const card=document.createElement("div");card.className="book";const cover=document.createElement("div");cover.className="cover";cover.textContent=b.icon;const tag=document.createElement("div");tag.className="tag";tag.textContent=b.genre;const title=document.createElement("h3");title.textContent=b.title;const desc=document.createElement("p");desc.className="muted";desc.textContent=b.desc;const count=document.createElement("p");count.className="muted";count.textContent=b.chapters.length+" бүлэг";const btn=document.createElement("button");btn.className="full";btn.textContent="Унших";btn.onclick=()=>openBook(i);card.append(cover,tag,title,desc,count,btn);grid.append(card)});
+ if(!found.length)grid.innerHTML='<p class="muted">Зохиол олдсонгүй.</p>';const pages=$("pages");pages.innerHTML="";for(let n=1;n<=total;n++){let b=document.createElement("button");b.textContent=n;b.className=n===page?"":"alt";b.onclick=()=>{page=n;render();window.scrollTo(0,0)};pages.append(b)}
 }
-
-function render() {
- renderFilters();
- const q=document.getElementById("search").value.toLowerCase();
- const found=books.map((b,i)=>({b,i})).filter(x=>(x.b.title+" "+x.b.desc).toLowerCase().includes(q)&&(category==="Бүгд"||x.b.genre===category));
- const total=Math.max(1,Math.ceil(found.length/perPage));if(page>total)page=total;
- const grid=document.getElementById("grid");grid.innerHTML="";
- found.slice((page-1)*perPage,page*perPage).forEach(({b,i})=>{
-  const card=document.createElement("div");card.className="book";
-  const cover=document.createElement("div");cover.className="cover";cover.textContent=b.icon||"📘";
-  const tag=document.createElement("div");tag.className="tag";tag.textContent=b.genre;
-  const title=document.createElement("h3");title.textContent=b.title;
-  const desc=document.createElement("p");desc.className="muted";desc.textContent=b.desc;
-  const count=document.createElement("p");count.className="muted";count.textContent=b.chapters.length+" бүлэг";
-  const btn=document.createElement("button");btn.className="full";btn.textContent="Унших";btn.onclick=()=>openBook(i);
-  card.append(cover,tag,title,desc,count,btn);grid.append(card)
- });
- if(!found.length)grid.innerHTML='<p class="muted">Зохиол олдсонгүй.</p>';
- const pages=document.getElementById("pages");pages.innerHTML="";
- for(let n=1;n<=total;n++){let b=document.createElement("button");b.textContent=n;b.className=n===page?"":"alt";b.onclick=()=>{page=n;render();document.getElementById("library")?.scrollIntoView()};pages.append(b)}
+function openBook(i){selected=i;const b=books[i];$("cover").textContent=b.icon;$("genre").textContent=b.genre;$("title").textContent=b.title;$("desc").textContent=b.desc;const list=$("chapters");list.innerHTML="";b.chapters.forEach((c,j)=>{let btn=document.createElement("button");btn.className="chapter";btn.textContent=c.title;btn.onclick=()=>openChapter(j);list.append(btn)});pageShow("detail")}
+function progressKey(){return "mn_progress_"+(currentUser?currentUser.id:"guest")}
+function openChapter(i){chapter=i;const b=books[selected],c=b.chapters[i];if(!c)return;$("readBook").textContent=b.title;$("readTitle").textContent=c.title;$("story").textContent=c.text;$("prev").disabled=i===0;$("next").disabled=i===b.chapters.length-1;
+ let all=JSON.parse(localStorage.getItem(progressKey())||"{}");all[b.id]={bookId:b.id,bookTitle:b.title,chapterIndex:i,chapterTitle:c.title};localStorage.setItem(progressKey(),JSON.stringify(all));$("progressMsg").textContent="Уншсан газар хадгалагдлаа.";pageShow("reader")}
+function move(d){let n=chapter+d;if(n>=0&&n<books[selected].chapters.length)openChapter(n)}function backDetail(){openBook(selected)}
+function favKey(){return "mn_favorites_"+(currentUser?currentUser.id:"guest")}
+function toggleFavorite(){const b=books[selected];let a=JSON.parse(localStorage.getItem(favKey())||"[]");a=a.includes(String(b.id))?a.filter(x=>x!==String(b.id)):a.concat(String(b.id));localStorage.setItem(favKey(),JSON.stringify(a));alert(a.includes(String(b.id))?"Дуртайд нэмлээ.":"Дуртайгаас хаслаа.");}
+async function signUp(){const email=$("email").value.trim(),password=$("password").value;if(!email||password.length<6){msg("authMsg","Имэйл оруулж, нууц үгээ 6-аас дээш тэмдэгт болгоно уу.");return}const {data,error}=await supabaseClient.auth.signUp({email,password});if(error){msg("authMsg",error.message);return}msg("authMsg",data.session?"Бүртгэл амжилттай.":"Бүртгэл үүслээ. Имэйлээ шалгаж баталгаажуулна уу.");}
+async function signIn(){const {data,error}=await supabaseClient.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){msg("authMsg",error.message);return}currentUser=data.user;await updateAuthUI();msg("authMsg","Амжилттай нэвтэрлээ.");}
+async function signOut(){await supabaseClient.auth.signOut();currentUser=null;isAdmin=false;await updateAuthUI();msg("authMsg","Системээс гарлаа.");}
+async function updateAuthUI(){const {data}=await supabaseClient.auth.getUser();currentUser=data.user||null;$("authForms").classList.toggle("hidden",!!currentUser);$("userInfo").classList.toggle("hidden",!currentUser);if(currentUser){$("userEmail").textContent="Нэвтэрсэн: "+currentUser.email;renderPersonalLists()} }
+function renderPersonalLists(){const prog=JSON.parse(localStorage.getItem(progressKey())||"{}");const r=$("resumeList");r.innerHTML="";Object.values(prog).forEach(p=>{const b=document.createElement("button");b.className="chapter";b.textContent=p.bookTitle+" — "+p.chapterTitle;b.onclick=()=>{const i=books.findIndex(x=>String(x.id)===String(p.bookId));if(i>=0){openBook(i);openChapter(Math.min(p.chapterIndex,books[i].chapters.length-1))}};r.append(b)});if(!r.children.length)r.textContent="Одоогоор уншсан түүх алга.";const f=$("favoriteList");f.innerHTML="";const ids=JSON.parse(localStorage.getItem(favKey())||"[]");ids.forEach(id=>{const book=books.find(x=>String(x.id)===id);if(book){const b=document.createElement("button");b.className="chapter";b.textContent=book.title;b.onclick=()=>openBook(books.indexOf(book));f.append(b)}});if(!f.children.length)f.textContent="Дуртай зохиол алга."}
+async function checkAdmin(){
+ $("editor").classList.add("hidden");$("adminLogin").classList.remove("hidden");const {data:{user}}=await supabaseClient.auth.getUser();currentUser=user||null;if(!user){msg("adminMsg","Эхлээд хэрэглэгчийн бүртгэлээр нэвтэрнэ үү.");return}
+ const {data,error}=await supabaseClient.from("profiles").select("is_admin").eq("id",user.id).maybeSingle();
+ if(error){msg("adminMsg","Админ эрх шалгахад алдаа: "+error.message+" (SQL тохиргоог хийнэ үү.)");return}
+ if(data&&data.is_admin===true){isAdmin=true;$("editor").classList.remove("hidden");$("adminLogin").classList.add("hidden");refreshSelects();msg("adminMsg","Админ эрх баталгаажлаа.")}else{isAdmin=false;msg("adminMsg","Энэ бүртгэлд админ эрх олгогдоогүй байна. SQL тохиргоогоор profiles.is_admin=true болгоно уу.")}
 }
-function openBook(i){
- selected=i;const b=books[i];document.getElementById("cover").textContent=b.icon||"📘";
- document.getElementById("genre").textContent=b.genre;document.getElementById("title").textContent=b.title;
- document.getElementById("desc").textContent=b.desc;const list=document.getElementById("chapters");list.innerHTML="";
- b.chapters.forEach((c,j)=>{let btn=document.createElement("button");btn.className="chapter";btn.textContent=c.title;btn.onclick=()=>openChapter(j);list.append(btn)});
- pageShow("detail")
-}
-function openChapter(i){
- chapter=i;const b=books[selected],c=b.chapters[i];
- document.getElementById("readBook").textContent=b.title;document.getElementById("readTitle").textContent=c.title;
- document.getElementById("story").textContent=c.text;
- document.getElementById("prev").disabled=i===0;document.getElementById("next").disabled=i===b.chapters.length-1;
- pageShow("reader")
-}
-function move(d){let n=chapter+d;if(n>=0&&n<books[selected].chapters.length)openChapter(n)}
-function backDetail(){openBook(selected)}
-function showAdmin(){pageShow("admin")}
-function login(){
- if(document.getElementById("pin").value===ADMIN_PIN){
-  logged=true;document.getElementById("login").classList.add("hidden");document.getElementById("editor").classList.remove("hidden");refreshSelects()
- }else document.getElementById("loginMsg").textContent="PIN код буруу байна."
-}
-function logout(){logged=false;document.getElementById("login").classList.remove("hidden");document.getElementById("editor").classList.add("hidden");document.getElementById("pin").value=""}
-function refreshSelects(){
- ["bookSelect","deleteSelect"].forEach(id=>{const s=document.getElementById(id);s.innerHTML="";books.forEach((b,i)=>{let o=document.createElement("option");o.value=i;o.textContent=b.title;s.append(o)})})
-}
-function addBook(){
- if(!logged)return;
- const title=document.getElementById("newTitle").value.trim();if(!title){alert("Novel-ийн нэрээ бичнэ үү.");return}
- books.push({title,genre:document.getElementById("newGenre").value,icon:document.getElementById("newIcon").value,desc:document.getElementById("newDesc").value.trim(),chapters:[]});
- if(save()){refreshSelects();render();document.getElementById("adminMsg").textContent="Novel хадгалагдлаа."}
- document.getElementById("newTitle").value="";document.getElementById("newDesc").value=""
-}
-function addChapter(){
- if(!logged)return;
- const i=Number(document.getElementById("bookSelect").value),title=document.getElementById("newChapter").value.trim(),text=document.getElementById("newText").value.trim();
- if(!books[i]||!title||!text){alert("Novel, бүлгийн нэр, текстээ бүрэн оруулна уу.");return}
- books[i].chapters.push({title,text});if(save()){render();openBook(i);document.getElementById("adminMsg").textContent="Бүлэг хадгалагдлаа."}
- document.getElementById("newChapter").value="";document.getElementById("newText").value=""
-}
-function deleteBook(){
- if(!logged)return;const i=Number(document.getElementById("deleteSelect").value);
- if(!books[i]||!confirm("Энэ Novel болон бүлгүүдийг устгах уу?"))return;
- books.splice(i,1);save();refreshSelects();render();document.getElementById("adminMsg").textContent="Устгалаа."
-}
-function exportData(){
- if(!logged)return;
- const blob=new Blob([JSON.stringify(books,null,2)],{type:"application/json"});
- const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();URL.revokeObjectURL(a.href)
-}
-render();
-</script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-const SUPABASE_URL = "https://bjpxaroipsvkiphycpmf.supabase.co";
-const SUPABASE_KEY = "sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w";
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
-console.log("Supabase холболтын сан:", !!window.supabase);
-
-
-if (typeof loadBooks === "function") {
-  loadBooks().catch(err => {
-    alert("Алдаа: " + err.message);
-    console.error(err);
-  });
-} else {
-  alert("loadBooks функц олдсонгүй!");
-}
-
-</script>
-</body>
-</html>
+function refreshSelects(){["bookSelect","deleteSelect"].forEach(id=>{const s=$(id);if(!s)return;s.innerHTML="";books.forEach(b=>{let o=document.createElement("option");o.value=b.id;o.textContent=b.title;s.append(o)})})}
+async function addBook(){if(!isAdmin){msg("adminMsg","Админ эрх шаардлагатай.");return}const title=$("newTitle").value.trim();if(!title){msg("adminMsg","Зохиолын нэрээ бичнэ үү.");return}
+ const {data,error}=await supabaseClient.from("novels").insert({title,genre:$("newGenre").value,description:$("newDesc").value.trim(),icon:$("newIcon").value}).select().single();if(error){msg("adminMsg","Хадгалах алдаа: "+error.message);return}await loadBooks();$("newTitle").value="";$("newDesc").value="";msg("adminMsg","Зохиол Supabase-д хадгалагдлаа.");}
+async function addChapter(){if(!isAdmin){msg("adminMsg","Админ эрх шаардлагатай.");return}const novelId=$("bookSelect").value,title=$("newChapter").value.trim(),text=$("newText").value.trim();if(!novelId||!title||!text){msg("adminMsg","Зохиол, бүлгийн нэр, текстээ бүрэн оруулна уу.");return}
+ const {data:existing,error:e}=await supabaseClient.from("chapters").select("chapter_number").eq("novel_id",novelId).order("chapter_number",{ascending:false}).limit(1);if(e){msg("adminMsg",e.message);return}const next=(existing&&existing.length?Number(existing[0].chapter_number||0):0)+1;
+ const {error}=await supabaseClient.from("chapters").insert({novel_id:novelId,title,text,content:text,chapter_number:next,published:true});if(error){msg("adminMsg","Бүлэг хадгалах алдаа: "+error.message);return}await loadBooks();$("newChapter").value="";$("newText").value="";msg("adminMsg","Бүлэг Supabase-д хадгалагдлаа.");}
+async function deleteBook(){if(!isAdmin)return;const id=$("deleteSelect").value;if(!id||!confirm("Энэ зохиол болон түүний бүлгүүдийг устгах уу?"))return;
+ const {error:e1}=await supabaseClient.from("chapters").delete().eq("novel_id",id);if(e1){msg("adminMsg","Бүлэг устгах алдаа: "+e1.message);return}const {error:e2}=await supabaseClient.from("novels").delete().eq("id",id);if(e2){msg("adminMsg","Зохиол устгах алдаа: "+e2.message);return}await loadBooks();msg("adminMsg","Зохиол болон бүлгүүд устлаа.");}
+function exportData(){if(!isAdmin)return;const blob=new Blob([JSON.stringify(books,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();URL.revokeObjectURL(a.href)}
+supabaseClient.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;});
+render();loadBooks().catch(e=>{console.error(e);alert("Supabase алдаа: "+e.message)});
+</script></body></html>
