@@ -23,7 +23,7 @@ input,textarea,select{width:100%;padding:12px;margin:6px 0 12px;background:#1015
 </section>
 <section id="detail" class="hidden"><button class="alt" onclick="home()">← Буцах</button><div class="panel"><div class="cover" id="cover">📘</div><div id="genre" class="tag"></div><h1 id="title"></h1><p id="desc" class="muted"></p><div class="row"><button class="alt" id="favButton" onclick="toggleFavorite()">☆ Дуртайд нэмэх</button><button onclick="startReading()">▶ Эхнээс нь унших</button></div><h2>Бүлгүүд</h2><div id="chapters"></div></div></section>
 <section id="reader" class="hidden"><button class="alt" onclick="backDetail()">← Бүлгүүд</button><div class="panel"><p id="readBook" class="muted"></p><h2 id="readTitle"></h2><div class="readerTools"><button class="alt" onclick="changeFont(-1)">A−</button><button class="alt" onclick="changeFont(1)">A+</button><button class="alt" onclick="toggleReaderTheme()">🌗 Унших өнгө</button><span id="fontLabel" class="muted"></span></div><hr><div id="story" class="story"></div><hr><button id="prev" class="alt" onclick="move(-1)">← Өмнөх</button><button id="next" onclick="move(1)">Дараагийн →</button><p id="progressMsg" class="muted"></p></div></section>
-<section id="account" class="hidden"><button class="alt" onclick="home()">← Нүүр</button><div class="panel"><h2>👤 Хэрэглэгчийн бүртгэл</h2><p class="muted">Имэйлээр бүртгүүлж эсвэл нэвтэрнэ үү. Баталгаажуулах имэйл ирэхгүй бол spam хавтсаа шалгаарай.</p><div id="authForms"><label>Имэйл</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"><label>Нууц үг</label><input id="password" type="password" autocomplete="current-password" placeholder="Наад зах нь 6 тэмдэгт"><div class="row"><button onclick="signUp()">Бүртгүүлэх</button><button class="alt" onclick="signIn()">Нэвтрэх</button></div><button class="alt" onclick="resetPassword()">Нууц үг мартсан?</button></div><div id="userInfo" class="hidden"><p id="userEmail"></p><h3>📌 Үргэлжлүүлэн унших</h3><div id="resumeList"></div><h3>⭐ Дуртай зохиол</h3><div id="favoriteList"></div><button class="alt" onclick="signOut()">Гарах</button></div><p id="authMsg" class="muted"></p></div></section>
+<section id="account" class="hidden"><button class="alt" onclick="home()">← Нүүр</button><div class="panel"><h2>👤 Хэрэглэгчийн бүртгэл</h2><p class="muted">Имэйлээр бүртгүүлж эсвэл нэвтэрнэ үү. Баталгаажуулах имэйл ирэхгүй бол spam хавтсаа шалгаарай.</p><div id="authForms"><label>Имэйл</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"><label>Нууц үг</label><input id="password" type="password" autocomplete="current-password" placeholder="Наад зах нь 6 тэмдэгт"><div class="row"><button onclick="signUp()">Бүртгүүлэх</button><button class="alt" onclick="signIn()">Нэвтрэх</button></div><button class="alt" onclick="resetPassword()">Нууц үг мартсан?</button></div><div id="recoveryBox" class="hidden"><h3>🔐 Шинэ нууц үг тохируулах</h3><p class="muted">Имэйлээр ирсэн нууц үг сэргээх холбоосоор орсон бол шинэ нууц үгээ хоёр удаа оруулна уу.</p><label>Шинэ нууц үг</label><input id="newPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Наад зах нь 6 тэмдэгт"><label>Шинэ нууц үг давтах</label><input id="confirmPassword" type="password" autocomplete="new-password" minlength="6" placeholder="Нууц үгээ дахин оруул"><div class="row"><button onclick="saveNewPassword()">Нууц үг хадгалах</button><button class="alt" onclick="cancelPasswordReset()">Болих</button></div></div><div id="userInfo" class="hidden"><p id="userEmail"></p><h3>📌 Үргэлжлүүлэн унших</h3><div id="resumeList"></div><h3>⭐ Дуртай зохиол</h3><div id="favoriteList"></div><button class="alt" onclick="signOut()">Гарах</button></div><p id="authMsg" class="muted"></p></div></section>
 <section id="admin" class="hidden"><button class="alt" onclick="home()">← Нүүр</button><div class="panel"><h2>🔐 Админ хэсэг</h2><p class="muted">Админ эрхийг Supabase дахь profiles хүснэгтийн is_admin=true утга болон өгөгдлийн сангийн RLS бодлогоор хамгаална.</p><div id="adminLogin"><p>Админ эрхтэй хэрэглэгчийн бүртгэлээр эхлээд нэвтэрнэ үү.</p><button onclick="showAccount()">Бүртгэл / Нэвтрэх</button><button class="alt" onclick="checkAdmin()">Админ эрх шалгах</button></div><div id="editor" class="hidden">
  <h3 id="bookFormTitle">Шинэ зохиол нэмэх</h3><input id="editingBookId" type="hidden"><label>Зохиолын нэр</label><input id="newTitle" placeholder="Жишээ: Миний зохиол"><label>Ангилал</label><select id="newGenre"><option>Уран зөгнөл</option><option>Тулаан</option><option>Адал явдал</option><option>Хайр дурлал</option><option>Драм</option><option>Аймшиг</option><option>Бусад</option></select><label>Товч тайлбар</label><textarea id="newDesc" style="min-height:80px" placeholder="Зохиолын тухай"></textarea><label>Нүүрний тэмдэг</label><select id="newIcon"><option>📘</option><option>⚔️</option><option>🌙</option><option>🏰</option><option>💜</option><option>🔥</option><option>🐉</option><option>🗡️</option></select><label>Нүүр зурагны URL (заавал биш)</label><input id="newCoverUrl" type="url" placeholder="https://..."><div class="row"><button onclick="saveBook()">Зохиол хадгалах</button><button class="alt" onclick="clearBookForm()">Шинээр нэмэх / цэвэрлэх</button></div>
  <hr><h3>Сонгосон зохиолд бүлэг нэмэх / засах</h3><label>Зохиол</label><select id="bookSelect"></select><label>Бүлэг сонгох (засах эсвэл устгах)</label><select id="chapterSelect" onchange="loadChapterEditor()"><option value="">— Шинэ бүлэг —</option></select><input id="editingChapterId" type="hidden"><label>Бүлгийн нэр</label><input id="newChapter" placeholder="1-р бүлэг: Эхлэл"><label>Бүлгийн текст</label><textarea id="newText" placeholder="Зохиолын текст..."></textarea><div class="row"><button onclick="saveChapter()">Бүлэг хадгалах</button><button class="alt" onclick="clearChapterForm()">Шинэ бүлэг / цэвэрлэх</button><button class="danger" onclick="deleteChapter()">Бүлэг устгах</button></div>
@@ -73,15 +73,66 @@ function favKey(){return "mn_favorites_"+(currentUser?currentUser.id:"guest")}
 function getFavorites(){return safeJson(localStorage.getItem(favKey()),[]).map(String)}
 function updateFavButton(){const yes=getFavorites().includes(String(books[selected]?.id));$("favButton").textContent=yes?"★ Дуртайгаас хасах":"☆ Дуртайд нэмэх"}
 function toggleFavorite(){const b=books[selected];if(!b)return;let a=getFavorites();a=a.includes(String(b.id))?a.filter(x=>x!==String(b.id)):a.concat(String(b.id));localStorage.setItem(favKey(),JSON.stringify(a));updateFavButton();if(currentUser)renderPersonalLists();alert(a.includes(String(b.id))?"Дуртайд нэмлээ.":"Дуртайгаас хаслаа.")}
-async function signUp(){const email=$("email").value.trim(),password=$("password").value;if(!email||password.length<6){msg("authMsg","Имэйл оруулж, нууц үгээ 6-аас доошгүй тэмдэгт болгоно уу.");return}
- const redirectTo=window.location.href.split("#")[0].split("?")[0];
- const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:redirectTo}});
+const SITE_URL="https://mmunkhgal0218-ops.github.io/-ZERO-/";
+function authRedirectUrl(){return SITE_URL}
+async function signUp(){
+ const email=$("email").value.trim().toLowerCase(),password=$("password").value;
+ if(!email||!$("email").checkValidity()||password.length<6){msg("authMsg","Зөв имэйл оруулж, нууц үгээ 6-аас доошгүй тэмдэгт болгоно уу.");return}
+ const {data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:authRedirectUrl()}});
  if(error){msg("authMsg","Бүртгэлийн алдаа: "+error.message);return}
- msg("authMsg",data.session?"Бүртгэл амжилттай. Та нэвтэрлээ.":"Бүртгэл үүслээ. Имэйлээ шалгаж баталгаажуулна уу. Хэрэв баталгаажуулах холбоос null руу очвол Supabase Dashboard → Authentication → URL Configuration хэсэгт Site URL болон Redirect URLs тохируулах шаардлагатай.");}
-async function signIn(){const email=$("email").value.trim(),password=$("password").value;if(!email||!password){msg("authMsg","Имэйл болон нууц үгээ оруулна уу.");return}const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});if(error){msg("authMsg","Нэвтрэх алдаа: "+error.message);return}currentUser=data.user;await updateAuthUI();msg("authMsg","Амжилттай нэвтэрлээ.");}
-async function resetPassword(){const email=$("email").value.trim();if(!email){msg("authMsg","Нууц үг сэргээх холбоос авахын тулд эхлээд имэйлээ оруулна уу.");return}const redirectTo=window.location.href.split("#")[0].split("?")[0];const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo});msg("authMsg",error?"Сэргээх алдаа: "+error.message:"Хэрэв энэ имэйл бүртгэлтэй бол нууц үг сэргээх холбоос илгээгдэнэ. Имэйл болон spam хавтсаа шалгаарай.");}
+ if(data.user&&!data.session){
+   msg("authMsg","Бүртгэл үүслээ. Имэйлээ баталгаажуулна уу. Хэрэв энэ имэйл өмнө нь бүртгэлтэй бол Users хэсгээс шалгаарай.");
+ }else{
+   msg("authMsg","Бүртгэл амжилттай үүслээ. Та нэвтэрсэн байна.");
+ }
+}
+async function signIn(){
+ const email=$("email").value.trim().toLowerCase(),password=$("password").value;
+ if(!email||!password){msg("authMsg","Имэйл болон нууц үгээ оруулна уу.");return}
+ const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+ if(error){
+   const m=String(error.message||"");
+   msg("authMsg",/invalid login credentials/i.test(m)?"Имэйл эсвэл нууц үг буруу байна. Нууц үг сэргээх холбоосоор шинэ нууц үг тохируулаад дахин оролдоно уу.":/email not confirmed/i.test(m)?"Имэйл баталгаажаагүй байна. Имэйл доторх Confirm email холбоосыг дарна уу.":"Нэвтрэх алдаа: "+m);
+   return;
+ }
+ currentUser=data.user;await updateAuthUI();msg("authMsg","Амжилттай нэвтэрлээ.");
+}
+async function resetPassword(){
+ const email=$("email").value.trim().toLowerCase();
+ if(!email||!$("email").checkValidity()){msg("authMsg","Нууц үг сэргээх холбоос авахын тулд зөв имэйлээ оруулна уу.");return}
+ const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo:authRedirectUrl()});
+ msg("authMsg",error?"Нууц үг сэргээх алдаа: "+error.message:"Нууц үг сэргээх имэйл илгээгдлээ. Имэйл болон Spam хавтсаа шалгаад Reset password холбоосыг дарна уу.");
+}
+function showPasswordReset(){
+ $("recoveryBox").classList.remove("hidden");
+ $("authForms").classList.add("hidden");
+ $("userInfo").classList.add("hidden");
+ msg("authMsg","Нууц үг сэргээх горим. Шинэ нууц үгээ оруулна уу.");
+ pageShow("account");
+ $("recoveryBox").classList.remove("hidden");
+ $("authForms").classList.add("hidden");
+ $("userInfo").classList.add("hidden");
+}
+function cancelPasswordReset(){
+ $("recoveryBox").classList.add("hidden");
+ $("newPassword").value="";$("confirmPassword").value="";
+ updateAuthUI();
+ msg("authMsg","Нууц үг сэргээх үйлдэл цуцлагдлаа.");
+}
+async function saveNewPassword(){
+ const password=$("newPassword").value,confirm=$("confirmPassword").value;
+ if(password.length<6){msg("authMsg","Шинэ нууц үг хамгийн багадаа 6 тэмдэгт байх ёстой.");return}
+ if(password!==confirm){msg("authMsg","Хоёр нууц үг хоорондоо таарахгүй байна.");return}
+ const {data,error}=await supabaseClient.auth.updateUser({password});
+ if(error){msg("authMsg","Нууц үг хадгалах алдаа: "+error.message+" — сэргээх имэйлийн холбоосыг шинээр хүсээд дахин оролдоно уу.");return}
+ $("recoveryBox").classList.add("hidden");
+ $("newPassword").value="";$("confirmPassword").value="";
+ currentUser=data.user||currentUser;
+ await updateAuthUI();
+ msg("authMsg","Шинэ нууц үг амжилттай хадгалагдлаа. Одоо шинэ нууц үгээрээ нэвтэрч болно.");
+}
 async function signOut(){await supabaseClient.auth.signOut();currentUser=null;isAdmin=false;await updateAuthUI();msg("authMsg","Системээс гарлаа.");}
-async function updateAuthUI(){const {data,error}=await supabaseClient.auth.getUser();currentUser=data?.user||null;$("authForms").classList.toggle("hidden",!!currentUser);$("userInfo").classList.toggle("hidden",!currentUser);if(currentUser){$("userEmail").textContent="Нэвтэрсэн: "+currentUser.email;renderPersonalLists()}else{$("resumeList").innerHTML="";$("favoriteList").innerHTML=""}}
+async function updateAuthUI(){const {data,error}=await supabaseClient.auth.getUser();currentUser=data?.user||null;if(!$("recoveryBox").classList.contains("hidden"))return;$("authForms").classList.toggle("hidden",!!currentUser);$("userInfo").classList.toggle("hidden",!currentUser);if(currentUser){$("userEmail").textContent="Нэвтэрсэн: "+currentUser.email;renderPersonalLists()}else{$("resumeList").innerHTML="";$("favoriteList").innerHTML=""}}
 function renderPersonalLists(){const prog=safeJson(localStorage.getItem(progressKey()),{});const r=$("resumeList");r.innerHTML="";Object.values(prog).forEach(p=>{const b=document.createElement("button");b.className="chapter";b.textContent=p.bookTitle+" — "+p.chapterTitle;b.onclick=()=>{const i=books.findIndex(x=>String(x.id)===String(p.bookId));if(i>=0&&books[i].chapters.length){openBook(i);openChapter(Math.min(p.chapterIndex,books[i].chapters.length-1))}};r.append(b)});if(!r.children.length)r.textContent="Одоогоор уншсан түүх алга.";const f=$("favoriteList");f.innerHTML="";getFavorites().forEach(id=>{const book=books.find(x=>String(x.id)===id);if(book){const b=document.createElement("button");b.className="chapter";b.textContent=book.title;b.onclick=()=>openBook(books.indexOf(book));f.append(b)}});if(!f.children.length)f.textContent="Дуртай зохиол алга."}
 async function checkAdmin(){
  $("editor").classList.add("hidden");$("adminLogin").classList.remove("hidden");const {data:{user},error:authError}=await supabaseClient.auth.getUser();currentUser=user||null;if(authError||!user){isAdmin=false;msg("adminMsg","Эхлээд хэрэглэгчийн бүртгэлээр нэвтэрнэ үү.");return}
@@ -105,7 +156,17 @@ async function deleteBook(){if(!isAdmin)return;const id=$("deleteSelect").value;
  const {error:e1}=await supabaseClient.from("chapters").delete().eq("novel_id",id);if(e1){msg("adminMsg","Бүлэг устгах алдаа: "+e1.message);return}const {error:e2}=await supabaseClient.from("novels").delete().eq("id",id);if(e2){msg("adminMsg","Зохиол устгах алдаа: "+e2.message);return}await loadBooks();clearBookForm();msg("adminMsg","Зохиол болон бүлгүүд устлаа.")}
 function exportData(){if(!isAdmin)return;const blob=new Blob([JSON.stringify(books,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="mongol-novel-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 $("bookSelect").addEventListener("change",()=>{refreshChapterSelect();clearChapterForm()});
-supabaseClient.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;setTimeout(()=>{if(!$("account").classList.contains("hidden"))updateAuthUI()},0)});
+supabaseClient.auth.onAuthStateChange((event,session)=>{
+ currentUser=session?.user||null;
+ if(event==="PASSWORD_RECOVERY"){setTimeout(showPasswordReset,0);return}
+ setTimeout(()=>{if(!$("account").classList.contains("hidden")&&$("recoveryBox").classList.contains("hidden"))updateAuthUI()},0);
+});
+(function detectRecoveryLink(){
+ const hash=window.location.hash||"",search=window.location.search||"";
+ if(hash.includes("type=recovery")||search.includes("type=recovery")){
+   setTimeout(showPasswordReset,350);
+ }
+})();
 render();loadBooks().catch(e=>{console.error(e);$("grid").innerHTML='<p class="muted">Зохиол ачаалж чадсангүй. Supabase хүснэгт болон эрхийн тохиргоог шалгана уу.</p>';msg("bookCount","Алдаа: "+e.message)});
 </script>
 </body>
