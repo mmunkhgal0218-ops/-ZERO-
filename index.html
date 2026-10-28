@@ -89,6 +89,30 @@ header{backdrop-filter:blur(10px)}
 .card .poster{transition:transform .2s,box-shadow .2s}.card:hover .poster{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.35),inset 0 -70px 50px -20px rgba(0,0,0,.55)}
 .sec h3{border-left:3px solid var(--ac);padding-left:10px}
 .hero{box-shadow:0 18px 50px -20px var(--glow)}
+
+/* Mongol Novel visual refresh */
+:root{--bg:#080d19;--s1:#111a2b;--s2:#1b2740;--ink:#f1f4ff;--muted:#9ca9c3;--line:#283652;--ac:#8875ff;--acink:#fff;--glow:rgba(115,91,255,.22);color-scheme:dark}
+body{background:radial-gradient(ellipse at 82% -12%,rgba(77,93,194,.2),transparent 38%),var(--bg)}
+.wrap{max-width:1240px;padding-left:clamp(14px,3vw,30px);padding-right:clamp(14px,3vw,30px)}
+header{background:rgba(8,13,25,.88);backdrop-filter:blur(18px);border-bottom-color:rgba(120,143,190,.18)}
+.top{padding:14px 0;gap:12px}
+.logo{font-size:1.35rem;letter-spacing:-.035em}.logo b{color:#a99bff}
+nav{gap:5px}nav button{padding:9px 13px;color:#b5c0d8}nav button[aria-current="page"]{background:linear-gradient(135deg,#6d5ce7,#4a5ed6);color:#fff;box-shadow:0 6px 20px rgba(91,82,226,.23)}
+.btn{background:rgba(20,30,50,.88);border-color:#344362;border-radius:12px;transition:transform .18s,border-color .18s,background .18s}.btn:hover{transform:translateY(-1px);border-color:#8d80ff}.btn.pri{background:linear-gradient(135deg,#8170ff,#5368e8);border-color:transparent;box-shadow:0 8px 22px rgba(99,88,236,.24)}
+.hero{min-height:clamp(290px,37vw,440px);margin:22px 0 26px;border:1px solid rgba(150,168,219,.16);border-radius:22px;background-position:center 40%!important;box-shadow:0 22px 60px rgba(0,0,0,.25),0 0 42px rgba(93,87,223,.09)}
+.hero::before{background:linear-gradient(90deg,rgba(5,9,19,.94) 0%,rgba(5,9,19,.72) 42%,rgba(5,9,19,.1) 100%),linear-gradient(0deg,rgba(5,9,19,.5),transparent 65%)}
+.hin{padding:clamp(22px,4vw,42px);max-width:650px}.hin small{display:inline-flex;align-items:center;gap:7px;background:rgba(104,91,229,.25);border:1px solid rgba(175,164,255,.28);padding:5px 11px;border-radius:99px;color:#d4ceff}.hin h2{font-size:clamp(2rem,5vw,3.4rem);text-shadow:0 4px 24px #000;letter-spacing:-.04em}.hin p{max-width:520px;font-size:1.03rem;line-height:1.75;color:#e0e6f7}.dots{right:22px;bottom:22px}.dots button{width:8px;height:8px}.dots button[aria-current="true"]{width:25px;border-radius:99px;background:#a99bff}
+.types{gap:12px;margin-bottom:32px}.tile{background:linear-gradient(145deg,rgba(25,37,62,.94),rgba(14,22,39,.96));border-color:#293957;border-radius:15px;padding:16px;transition:transform .18s,border-color .18s}.tile:hover{transform:translateY(-3px);border-color:#8577ff}.tile b{font-size:.98rem}.tile span{display:block;margin-top:4px;color:#9eabc6}
+.sec{margin:8px 0 16px;align-items:center}.sec h3{font-family:"Noto Sans",sans-serif;font-size:1.16rem;font-weight:700;border-left:3px solid #8b7aff;padding-left:12px}.link{color:#b2a8ff}
+.grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:22px 16px;margin-bottom:34px}.card{min-width:0}.poster{aspect-ratio:2/2.8;border-radius:14px;padding:13px;background-position:center!important;background-size:cover!important;border:1px solid rgba(177,190,228,.16);box-shadow:0 9px 22px rgba(0,0,0,.22),inset 0 -90px 60px -24px rgba(0,0,0,.83);font-size:1.04rem;text-shadow:0 2px 8px rgba(0,0,0,.9)}.poster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,8,17,.02) 30%,rgba(4,8,17,.18) 52%,rgba(4,8,17,.88));pointer-events:none}.poster>*{z-index:1}.badge{background:rgba(12,16,30,.72);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);font-size:.68rem}.card .m{margin-top:9px;padding:0 2px}.card .m b{font-size:.91rem;line-height:1.4}.card .m span{font-size:.78rem;color:#98a6c2}.card:hover .poster{transform:translateY(-4px) scale(1.015);box-shadow:0 16px 30px rgba(0,0,0,.38),0 0 20px rgba(120,104,255,.12),inset 0 -90px 60px -24px rgba(0,0,0,.83)}
+.chips{gap:9px;padding-bottom:15px}.chip{background:#121d31;border-color:#2b3a59;color:#c2cce2}.chip[aria-pressed="true"],.chip:hover{background:#695de0;border-color:#8176ff;color:white}
+.in{background:#111a2b;border-color:#2d3b59;border-radius:12px}.rank{background:linear-gradient(135deg,#171e3d,#111a2b);border-color:#2d3b60;border-radius:17px}.rank h3{color:#b4a9ff}
+.det{gap:26px}.det>.poster{min-height:290px}.det h2{letter-spacing:-.035em}.meta{color:#a4b0ca}.chl button:hover{background:rgba(120,110,255,.08)}
+dialog{background:#0a1020} .dbar{background:rgba(17,26,43,.96);backdrop-filter:blur(14px);border-bottom-color:#2b3958}
+footer{border-top-color:#202c44;color:#8190ad}
+@media(min-width:900px){.grid{grid-template-columns:repeat(auto-fill,minmax(155px,1fr))}.hero{min-height:390px}}
+@media(max-width:560px){.top{gap:8px}.logo{font-size:1.1rem}nav{width:100%;order:3;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}nav button{white-space:nowrap}.hero{min-height:330px;margin-top:14px;border-radius:17px;background-position:58% center!important}.hero::before{background:linear-gradient(0deg,rgba(5,9,19,.96),rgba(5,9,19,.52) 65%,rgba(5,9,19,.16))}.hin{padding:20px}.hin h2{font-size:2rem}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.poster{border-radius:12px;padding:10px;font-size:.95rem}.types{grid-template-columns:repeat(2,minmax(0,1fr))}.det{grid-template-columns:115px 1fr;gap:15px}.det>.poster{min-height:170px}.det h2{font-size:1.35rem}}
+
 </style>
 </head>
 <body>
@@ -118,8 +142,8 @@ header{backdrop-filter:blur(10px)}
 <label style="width:80px">Өнгө<input id="fC" type="color" value="#2a4d9b"></label></div>
 <label>Ангилал (таслалаар тусгаарла)<input id="fK" placeholder="Адал явдалт, Уран зөгнөлт"></label>
 <label>Товч тайлбар<textarea id="fD" style="min-height:70px"></textarea></label>
-<label>Хавтасны зургийн URL<input id="fI" type="url" placeholder="https://..."></label>
-<p class="note">Видео/аудио файл оруулах нь одоогоор холбогдоогүй.</p>
+<label>Хавтасны зураг <span id="iN"></span><input id="fI" type="file" accept="image/*"></label>
+<label>Видео эсвэл аудио файл (mp4, webm) <span id="mN"></span><input id="fM" type="file" accept="video/mp4,video/webm"></label>
 <label class="chk"><input id="fF" type="checkbox">Нүүрний онцлох хэсэгт гаргах</label>
 <label>Бүлгүүд<textarea id="fX" placeholder="# 1-р бүлэг&#10;Текст...&#10;&#10;# 2-р бүлэг&#10;..."></textarea></label>
 <p class="note">Бүлгийг «# Бүлгийн нэр» мөрөөр эхлүүлнэ. Догол мөрийг хоосон мөрөөр тусгаарлана.</p>
@@ -131,11 +155,7 @@ header{backdrop-filter:blur(10px)}
 <fieldset><legend>Бүртгэлтэй бүтээлүүд</legend><input class="in" id="fL" type="search" placeholder="Нэрээр хайх" aria-label="Хайх"><div id="list"></div></fieldset>
 </div></dialog>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL="https://bjpxaroipsvkiphycpmf.supabase.co";
-const SUPABASE_KEY="sb_publishable_qIY9OSyYDDcl4_Z7InsebQ_LRkvet6w";
-const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const TYPES=["Веб зохиол","Аудио ном","Манхуа","Драма","Кино"];
 const SAMPLES=[
 {title:"Цаст оргилын захиа",type:"Веб зохиол",status:"Үргэлжилж буй",cats:["Адал явдалт","Уран зөгнөлт"],color:"#2a4d9b",desc:"Хангайн бэлд өссөн залуу эртний захиаг олж, алдагдсан хаант улсын нууцыг мөшгөн аян замд гарна.",text:"# 1-р бүлэг: Захиа\nӨглөө эрт тэнгэр цэлмэж, уулын оройд анхны гэрэл тусав. Тэмүүжин хонио хашаанд оруулж байтал хад чулууны завсраас шар цаасны өлгий олов.\n\nЭнэ бол өвөөгийнх нь хэзээ ч ярьж байгаагүй нууцын эхлэл байлаа.\n\n# 2-р бүлэг: Зам\nТэр ганц морь, хоёр шуудай хуурай чанамлаар аян замд гарлаа. Салхи нуруу руу нь түлхэж байх шиг санагдана.\n\n# 3-р бүлэг: Хошуу\nХошууны эргэн тойронд цас хайлж, голын мөс хагарах чимээ шөнөжин сонсогдов."},
@@ -144,9 +164,18 @@ const SAMPLES=[
 {title:"Бороотой хотын нууц",type:"Драма",status:"Дууссан",cats:["Ер бусын","Романтик"],color:"#2d6a5c",desc:"Бороо орох бүрт нэг хүн алга болдог хотод ганц мөрдөгч үнэнийг хайна.",text:"# 1-р анги\nБороо дөрөв дэх өдрөө үргэлжилж байлаа. Мөрдөгч Билгүүн цонхоор гудамж ширтэв.\n\n# 2-р анги\nАлга болсон хүмүүсийн нэр нэг тойрог дээр байсныг тэр шөнө олж харав."},
 {title:"Тэнгэрийн хаалга",type:"Манхуа",status:"Үргэлжилж буй",cats:["Тулаант","Уран зөгнөлт"],color:"#5a3d96",desc:"Долоон хаалгыг нээсэн хүн л тэнгэрт хүрнэ. Гэтэл нэг хаалга бүр нэг амь авдаг.",text:"# 1-р бүлэг\nЭхний хаалга хүнд байлаа. Төмөр хүйтэн гарт нь наалдав.\n\n# 2-р бүлэг\nХоёр дахь хаалганы цаана хэн нэгэн түүнийг хүлээж байв."},
 {title:"Сүүлчийн галт тэрэг",type:"Кино",status:"Дууссан",cats:["Адал явдалт"],color:"#33415c",desc:"Шөнө дундын галт тэргэнд таарсан дөрвөн танихгүй хүний нэг шөнийн түүх.",text:"# Үйл явдал\nГалт тэрэг хөдлөхөөс таван минутын өмнө тэр сүүлчийн тасалбараа авлаа."}];
+const COVER_IMAGES=[
+ "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85",
+ "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
+ "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=85",
+ "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85",
+ "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=900&q=85",
+ "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=85"
+];
+SAMPLES.forEach((w,i)=>{if(!w.img)w.img=COVER_IMAGES[i%COVER_IMAGES.length]});
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let works=SAMPLES.map((w,i)=>({...w,id:"s"+i,createdAt:10-i})),fromDb=false,col=true,isAdmin=false,currentUser=null;
+let works=SAMPLES.map((w,i)=>({...w,id:"s"+i,createdAt:10-i})),fromDb=false,col=null,isAdmin=false;
 let view="home",cur=null,ci=0,fs=18,slide=0,editId=null,F={type:"",cat:"",q:"",sort:"new"},timer=null;
 const ls=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
 let lib=ls("lib",[]),prog=ls("prog",{});
@@ -154,7 +183,8 @@ const save=()=>{try{localStorage.setItem("lib",JSON.stringify(lib));localStorage
 const chs=t=>{const o=[];let h="",b=[];String(t||"").split("\n").forEach(l=>{if(l.startsWith("# ")){if(h||b.join("").trim())o.push([h,b.join("\n").trim()]);h=l.slice(2).trim();b=[]}else b.push(l)});if(h||b.join("").trim())o.push([h,b.join("\n").trim()]);return o.length?o:[["",""]]};
 const W=()=>works.filter(w=>!w.draft||isAdmin);
 const byNew=a=>[...a].sort((x,y)=>(y.createdAt||0)-(x.createdAt||0));
-const poster=(w,x="")=>`<div class="poster" style="background:${w.img?`url(${esc(w.img)}) center/cover`:`linear-gradient(160deg,${esc(w.color)},#0b1020)`}">${x}<span class="badge">${esc(w.type)}</span>${esc(w.title)}</div>`;
+const imgSrc=v=>/^https?:\/\//i.test(String(v||""))||String(v||"").startsWith("data:")?String(v):"/_blob/"+String(v||"");
+const poster=(w,x="")=>`<div class="poster" style="background:${w.img?`url(&quot;${esc(imgSrc(w.img))}&quot;) center/cover`: `linear-gradient(160deg,${esc(w.color)},#0b1020)`}">${x}<span class="badge">${esc(w.type)}</span>${esc(w.title)}</div>`;
 const card=w=>`<button class="card" data-id="${esc(w.id)}">${poster(w)}<div class="m"><b>${esc(w.title)}</b><span>${chs(w.text).length} бүлэг · ${esc(w.status)}</span></div></button>`;
 const doneCount=()=>Object.values(prog).reduce((n,p)=>n+(p.done||[]).length,0);
 const RANKS=[[0,"Шавь"],[5,"Багш"],[15,"Их багш"],[40,"Тулааны Хаан"],[100,"Тулааны Эзэн-хаан"],[250,"Гэгээнтэн"]];
@@ -171,7 +201,7 @@ function home(){
  clearInterval(timer);
  const n=byNew(W()),fe=n.filter(w=>w.featured),hs=(fe.length?fe:n).slice(0,3);slide=slide%Math.max(hs.length,1);const h=hs[slide];
  const cats=[...new Set(W().flatMap(w=>w.cats||[]))];
- $("#main").innerHTML=(h?`<section class="hero" style="background:${h.img?`url(/_blob/${esc(h.img)}) center/cover`:`linear-gradient(150deg,${esc(h.color)},#0b1020)`}"><div class="hin"><small>Онцлох · ${esc(h.type)}</small><h2>${esc(h.title)}</h2><p>${esc(h.desc)}</p><button class="btn pri" data-open="${esc(h.id)}">Дэлгэрэнгүй</button></div><div class="dots">${hs.map((_,i)=>`<button data-s="${i}" aria-label="${i+1}" aria-current="${i===slide}"></button>`).join("")}</div></section>`:"")+
+ $("#main").innerHTML=(h?`<section class="hero" style="background:${h.img?`url("${esc(imgSrc(h.img))}") center/cover`:`linear-gradient(150deg,${esc(h.color)},#0b1020)`}"><div class="hin"><small>Онцлох · ${esc(h.type)}</small><h2>${esc(h.title)}</h2><p>${esc(h.desc)}</p><button class="btn pri" data-open="${esc(h.id)}">Дэлгэрэнгүй</button></div><div class="dots">${hs.map((_,i)=>`<button data-s="${i}" aria-label="${i+1}" aria-current="${i===slide}"></button>`).join("")}</div></section>`:"")+
  `<div class="types">${TYPES.map(t=>`<button class="tile" data-t="${t}"><b>${t}</b><span>${W().filter(w=>w.type===t).length} бүтээл</span></button>`).join("")}</div>
  <div class="sec"><h3>Сүүлд нэмэгдсэн</h3><button class="link" data-v="browse">Бүгдийг үзэх</button></div><div class="grid">${n.slice(0,8).map(card).join("")}</div>
  <div class="sec"><h3>Түгээмэл ангилал</h3></div><div class="chips">${cats.map(c=>`<button class="chip" data-c="${esc(c)}"># ${esc(c)}</button>`).join("")}</div>`;
@@ -227,92 +257,53 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("input",e=>{if(e.target.id==="q"){F.q=e.target.value;const p=e.target.selectionStart;browse();const q=$("#q");q.focus();q.setSelectionRange(p,p)}if(e.target.id==="so"){F.sort=e.target.value;browse()}});
 
-/* Supabase admin + existing MongolNovel database integration */
+/* Admin */
 const say=t=>$("#msg").textContent=t;
 let img="",media="";
+const upl=async f=>{const a=await claude.use("assets");if(!a)throw new Error("Файл оруулах эрх алга");return (await a.upload(f)).id};
 function resetForm(){editId=null;img=media="";["fT","fK","fD","fX"].forEach(i=>$("#"+i).value="");$("#fY").value=TYPES[0];$("#fS").selectedIndex=0;$("#fP").selectedIndex=0;$("#fC").value="#2a4d9b";$("#fF").checked=false;$("#fI").value="";$("#fM").value="";$("#iN").textContent=$("#mN").textContent="";$("#fh").textContent="Шинэ бүтээл бүртгэх";say("")}
-$("#fI").onchange=()=>{img=$("#fI").value.trim()};
-function parseChapters(text){return chs(text).filter(x=>x[1].trim()).map((x,i)=>({title:x[0]||("Бүлэг "+(i+1)),text:x[1]}))}
-async function refreshFromSupabase(){
- const [{data:novels,error:e1},{data:chapters,error:e2}]=await Promise.all([
-  supabaseClient.from("novels").select("*").order("id",{ascending:false}),
-  supabaseClient.from("chapters").select("*").order("chapter_number",{ascending:true})
- ]);
- if(e1)throw e1;if(e2)throw e2;
- works=(novels||[]).map((n,i)=>{
-  const cc=(chapters||[]).filter(c=>String(c.novel_id)===String(n.id));
-  return {id:String(n.id),title:n.title||"Нэргүй",type:n.genre||"Веб зохиол",status:n.status||"Үргэлжилж буй",
-   cats:n.categories||[],color:n.color||"#2a4d9b",desc:n.description||"",img:n.cover_url||n.cover_image||"",
-   media:"",featured:!!n.featured,draft:false,createdAt:n.created_at?new Date(n.created_at).getTime():((novels.length-i)*1000),
-   text:cc.map((c,j)=>"# "+(c.title||("Бүлэг "+(c.chapter_number||j+1)))+"\n"+(c.text||c.content||"")).join("\n\n"),
-   _chapters:cc};
- });
- fromDb=true;
- if(cur)cur=works.find(w=>w.id===cur.id)||null;
- draw();renderList();
-}
-async function refreshAdmin(){
- const {data:{user},error}=await supabaseClient.auth.getUser();
- if(error)throw error;currentUser=user;isAdmin=false;
- if(user){
-  const {data:p,error:pe}=await supabaseClient.from("profiles").select("is_admin").eq("id",user.id).maybeSingle();
-  if(pe)throw pe;isAdmin=!!p?.is_admin;
- }
- nav();draw();
- if(!isAdmin){say("Админ эрхтэй бүртгэлээр нэвтэрч орно уу. Нэвтрэх хэсгийг өмнөх MongolNovel сайтаас ашиглана.");}
-}
+$("#fI").onchange=async e=>{const f=e.target.files[0];if(!f)return;say("Зураг илгээж байна...");try{img=await upl(f);$("#iN").textContent="✓ орсон";say("")}catch(x){say("Зураг оруулж чадсангүй: "+(x.message||""))}};
+$("#fM").onchange=async e=>{const f=e.target.files[0];if(!f)return;say("Файл илгээж байна...");try{media=await upl(f);$("#mN").textContent="✓ орсон";say("")}catch(x){say("Файл оруулж чадсангүй: "+(x.message||""))}};
 function renderList(){
- const cn=works.reduce((n,w)=>n+chs(w.text).length,0);
- $("#stats").innerHTML=[["Бүтээл",works.length],["Бүлэг",cn],["Нийтлэгдсэн",works.length],["Ноорог",0]].map(([a,b])=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`).join("");
- $("#seed").hidden=true;
- const q=$("#fL").value.toLowerCase(),L=works.filter(w=>w.title.toLowerCase().includes(q)),sv=$("#fQ").value;
- $("#fQ").innerHTML=works.map(w=>`<option value="${esc(w.id)}">${esc(w.title)}</option>`).join("");$("#fQ").value=sv;
- $("#list").innerHTML=L.length?L.map(w=>`<div class="item"><span><b>${esc(w.title)}</b>${w.featured?" ★":""}<br><span class="note">${esc(w.type)} · ${chs(w.text).length} бүлэг</span></span><span class="acts"><button class="btn" data-f="${esc(w.id)}">${w.featured?"Онцлохоос хасах":"Онцлох"}</button><button class="btn" data-e="${esc(w.id)}">Засах</button><button class="btn del" data-d="${esc(w.id)}">Устгах</button></span></div>`).join(""):'<p class="note">Бүртгэлтэй бүтээл олдсонгүй.</p>';
+ const ok=fromDb,cn=ok?works.reduce((n,w)=>n+chs(w.text).length,0):0;
+ $("#stats").innerHTML=[["Бүтээл",ok?works.length:0],["Бүлэг",cn],["Нийтлэгдсэн",ok?works.filter(w=>!w.draft).length:0],["Ноорог",ok?works.filter(w=>w.draft).length:0]].map(([a,b])=>`<div class="stat"><b>${b}</b><span>${a}</span></div>`).join("");
+ $("#seed").hidden=!(col&&!fromDb);
+ const q=$("#fL").value.toLowerCase(),L=ok?works.filter(w=>w.title.toLowerCase().includes(q)):[],sv=$("#fQ").value;
+ $("#fQ").innerHTML=(ok?works:[]).map(w=>`<option value="${esc(w.id)}">${esc(w.title)}</option>`).join("");$("#fQ").value=sv;
+ $("#list").innerHTML=L.length?L.map(w=>`<div class="item"><span><b>${esc(w.title)}</b>${w.featured?" ★":""}${w.draft?" (ноорог)":""}<br><span class="note">${esc(w.type)} · ${chs(w.text).length} бүлэг</span></span><span class="acts"><button class="btn" data-f="${esc(w.id)}">${w.featured?"Онцлохоос хасах":"Онцлох"}</button><button class="btn" data-p="${esc(w.id)}">${w.draft?"Нийтлэх":"Ноорог болгох"}</button><button class="btn" data-e="${esc(w.id)}">Засах</button><button class="btn del" data-d="${esc(w.id)}">Устгах</button></span></div>`).join(""):'<p class="note">Бүртгэлтэй бүтээл олдсонгүй.</p>';
 }
 $("#fL").oninput=renderList;$("#fReset").onclick=resetForm;
 $("#fSave").onclick=async()=>{
- if(!isAdmin)return say("Админ эрх шаардлагатай. Өмнөх MongolNovel сайтад админ эрхээр нэвтэрнэ үү.");
- const title=$("#fT").value.trim(),parts=parseChapters($("#fX").value);
- if(!title||!parts.length)return say("Гарчиг болон дор хаяж нэг бүлгийн текст оруулна уу.");
- const payload={title,genre:$("#fY").value,description:$("#fD").value.trim(),icon:"📘",cover_url:$("#fI").value.trim()||null};
- try{
-  let id=editId;
-  if(id){const {error}=await supabaseClient.from("novels").update(payload).eq("id",id);if(error)throw error;}
-  else {const {data,error}=await supabaseClient.from("novels").insert(payload).select("id").single();if(error)throw error;id=String(data.id);}
-  const {error:de}=await supabaseClient.from("chapters").delete().eq("novel_id",id);if(de)throw de;
-  const rows=parts.map((c,i)=>({novel_id:id,title:c.title,text:c.text,chapter_number:i+1,published:$("#fP").value==="0"}));
-  const {error:ie}=await supabaseClient.from("chapters").insert(rows);if(ie)throw ie;
-  await refreshFromSupabase();resetForm();say("Supabase-д хадгалагдлаа.");
- }catch(e){say("Хадгалах алдаа: "+(e.message||e));}
+ if(!col)return say("Өгөгдлийн сантай холбогдоогүй байна.");
+ const d={title:$("#fT").value.trim(),type:$("#fY").value,status:$("#fS").value,color:$("#fC").value,cats:$("#fK").value.split(",").map(s=>s.trim()).filter(Boolean),desc:$("#fD").value.trim(),text:$("#fX").value,img,media,featured:$("#fF").checked,draft:$("#fP").value==="1"};
+ if(!d.title||!d.text.trim())return say("Гарчиг болон бүлгийн текстийг заавал бөглөнө үү.");
+ try{editId?await col.doc(editId).update(d):await col.doc("w"+Date.now().toString(36)).set({...d,createdAt:Date.now()});resetForm();say("Хадгалагдлаа.")}catch(e){say("Хадгалж чадсангүй: "+(e&&e.message||"алдаа"))}
 };
 $("#fQA").onclick=async()=>{
- if(!isAdmin)return say("Админ эрх шаардлагатай.");
- const id=$("#fQ").value,t=$("#fQT").value.trim(),x=$("#fQX").value.trim();
- if(!id||!t||!x)return say("Бүтээл сонгож, бүлгийн нэр болон текстээ бөглөнө үү.");
- try{const {data,error}=await supabaseClient.from("chapters").select("chapter_number").eq("novel_id",id).order("chapter_number",{ascending:false}).limit(1);if(error)throw error;
- const n=(data?.[0]?.chapter_number||0)+1;const {error:ie}=await supabaseClient.from("chapters").insert({novel_id:id,title:t,text:x,chapter_number:n,published:true});if(ie)throw ie;
- $("#fQT").value=$("#fQX").value="";await refreshFromSupabase();say("Бүлэг нэмэгдлээ.");
- }catch(e){say("Бүлэг нэмэх алдаа: "+(e.message||e));}
+ const id=$("#fQ").value,t=$("#fQT").value.trim(),x=$("#fQX").value.trim(),w=works.find(z=>z.id===id);
+ if(!col||!w||!t||!x)return say("Бүтээл сонгож, бүлгийн нэр болон текстийг бөглөнө үү.");
+ try{await col.doc(id).update({text:String(w.text||"").replace(/\s+$/,"")+"\n\n# "+t+"\n"+x});$("#fQT").value=$("#fQX").value="";say("Бүлэг нэмэгдлээ.")}catch(e){say("Нэмж чадсангүй.")}
 };
 $("#list").onclick=async e=>{
- const t=e.target.closest("button");if(!t)return;const d=t.dataset,id=d.e||d.d||d.f,w=works.find(x=>x.id===id);if(!id||!w)return;
- if(d.e){editId=id;img=w.img||"";$("#fT").value=w.title;$("#fY").value=w.type;$("#fS").value=w.status;$("#fP").value="0";$("#fC").value=w.color;$("#fK").value=(w.cats||[]).join(", ");$("#fD").value=w.desc||"";$("#fX").value=w.text;$("#fF").checked=!!w.featured;$("#fI").value=img;$("#fh").textContent="Бүтээл засах";$("#adm").scrollTop=0;return}
- if(!isAdmin)return say("Админ эрх шаардлагатай.");
+ const {e:a,d:b,f,p}=e.target.dataset,id=a||b||f||p;if(!id)return;const w=works.find(x=>x.id===id);
  try{
-  if(d.f){say("Онцлох тэмдэглэгээний багана одоогийн мэдээллийн санд тохируулагдаагүй.");}
-  else if(d.d&&confirm("Энэ бүтээл болон бүлгүүдийг устгах уу?")){
-   const {error:e1}=await supabaseClient.from("chapters").delete().eq("novel_id",id);if(e1)throw e1;
-   const {error:e2}=await supabaseClient.from("novels").delete().eq("id",id);if(e2)throw e2;
-   await refreshFromSupabase();say("Бүтээл устлаа.");
-  }
- }catch(x){say("Үйлдэл амжилтгүй: "+(x.message||x));}
+  if(f)await col.doc(id).update({featured:!w.featured});
+  else if(p)await col.doc(id).update({draft:!w.draft});
+  else if(a){editId=a;img=w.img||"";media=w.media||"";$("#fT").value=w.title;$("#fY").value=w.type;$("#fS").value=w.status;$("#fP").value=w.draft?"1":"0";$("#fC").value=w.color;$("#fK").value=(w.cats||[]).join(", ");$("#fD").value=w.desc||"";$("#fX").value=w.text;$("#fF").checked=!!w.featured;$("#iN").textContent=img?"✓ орсон":"";$("#mN").textContent=media?"✓ орсон":"";$("#fh").textContent="Бүтээл засах";$("#adm").scrollTop=0}
+  else if(b&&confirm("Энэ бүтээлийг устгах уу?")){await col.doc(id).delete();say("Устгагдлаа.")}
+ }catch(x){say("Үйлдэл амжилтгүй боллоо.")}
 };
-$("#seed").onclick=()=>say("Жишээ бүтээл оруулахыг идэвхгүй болгосон: бодит мэдээлэлтэй давхардах эрсдэлтэй.");
+$("#seed").onclick=async()=>{try{for(let i=0;i<SAMPLES.length;i++)await col.doc("w"+i).set({...SAMPLES[i],createdAt:Date.now()-i*1000});say("Жишээ бүтээл орлоо.")}catch(e){say("Оруулж чадсангүй.")}};
+
 document.documentElement.dataset.theme="dark";
 draw();
 (async()=>{
- try{await refreshAdmin();await refreshFromSupabase();}
- catch(e){console.error(e);say("Supabase холболтын алдаа: "+(e.message||e));}
+ try{
+  const u=await claude.use("user");isAdmin=!!(u&&u.canEdit&&u.canEdit());
+  if(isAdmin)$("#foot").textContent="Та админ эрхээр нэвтэрсэн байна.";nav();draw();
+  const db=await claude.use("db");
+  if(db){col=db.collection("works");col.onSnapshot(s=>{const a=s.docs.map(d=>({id:d.id,...d.data()}));fromDb=a.length>0;works=fromDb?a:SAMPLES.map((w,i)=>({...w,id:"s"+i,createdAt:10-i}));if(cur)cur=works.find(w=>w.id===cur.id)||cur;if(!$("#rd").open)draw();renderList()},()=>{})}
+ }catch(e){}
 })();
 </script>
 </body>
